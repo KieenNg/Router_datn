@@ -1,0 +1,64 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+d/home/socone
+T_opt
+!s110 1747047203
+VfbA>O4QDXLL5dhDP]^6:g3
+04 13 4 work tb_serializer fast 0
+=12-d85ed3a57061-6821d323-b3432-115d0
+o-quiet -auto_acc_if_foreign -work work +acc
+Z0 tCvgOpt 0
+n@_opt
+OL;O;10.7c;67
+vserializer
+Z1 !s110 1747047200
+!i10b 1
+!s100 NzlFBmW0=e7eEOem<4=`n1
+IdmG@U8PnjZ4VHdai9fTK21
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+Z3 d/home/socone/Documents/DATN/code/serializer
+w1747047193
+8/home/socone/Documents/DATN/code/serializer/serializer.v
+F/home/socone/Documents/DATN/code/serializer/serializer.v
+L0 1
+Z4 OL;L;10.7c;67
+r1
+!s85 0
+31
+Z5 !s108 1747047200.000000
+!s107 /home/socone/Documents/DATN/code/serializer/serializer.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/socone/Documents/DATN/code/serializer/serializer.v|
+!i113 0
+o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R0
+vtb_serializer
+DXx6 sv_std 3 std 0 22 d=_JfHTnXCN[H5FjiaJJc0
+R1
+!i10b 1
+!s100 CkVW<B_mDS[7OX]kL=<N?2
+IJ@zEC2UhNH]L=eEU@IQf43
+R2
+!s105 tb_serializer_sv_unit
+S1
+R3
+w1747046557
+8/home/socone/Documents/DATN/code/serializer/tb_serializer.sv
+F/home/socone/Documents/DATN/code/serializer/tb_serializer.sv
+L0 3
+R4
+r1
+!s85 0
+31
+R5
+!s107 /home/socone/Documents/DATN/code/serializer/tb_serializer.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/home/socone/Documents/DATN/code/serializer/tb_serializer.sv|
+!i113 0
+o-work work -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R0

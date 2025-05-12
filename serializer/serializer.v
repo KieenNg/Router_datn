@@ -25,8 +25,8 @@ module serializer
     output reg                          done_serializer
 );
 // State machine for serializer
-reg current_state;
-reg next_state;
+reg [1:0] current_state;
+reg [1:0] next_state;
 
 localparam IDLE = 2'b00;
 localparam SEND_HEADER = 2'b01;
@@ -34,10 +34,22 @@ localparam SEND_PAYLOAD = 2'b10;
 localparam DONE = 2'b11;
 
 reg [$clog2(NUMBER_PACKET) - 1:0]frame_count;
-
+reg [SEND_DATA_WIDTH-1:0] data_read_reg;
+always @(posedge clk or negedge rst_n) begin
+    if(!rst_n) begin
+        data_read_reg <= 0;
+    end else begin
+        if (send_data_valid) begin
+            data_read_reg <= v_data_read;
+        end else begin
+            data_read_reg <= data_read_reg;
+        end
+    end
+end
 always @(posedge clk or negedge rst_n) begin
     if(!rst_n) begin
         current_state <= 0;
+        next_state <= 0;
     end else begin
         current_state <= next_state;
     end
@@ -47,8 +59,8 @@ always @(posedge clk or negedge rst_n) begin
         axis_tx_tvalid <= 0;
         axis_tx_tlast <= 0;
         axis_tx_tdata <= 0;
+        frame_count <= 1;
         done_serializer <= 0;
-        frame_count <= 0;
     end else begin
         case (current_state)
             IDLE: begin
@@ -64,35 +76,27 @@ always @(posedge clk or negedge rst_n) begin
                 axis_tx_tlast <= 0;
                 axis_tx_tdata <= {49'b0, dst_addr_send, TTL_send, router_id_send, 1'b1};
                 done_serializer <= 0;
-                frame_count <= frame_count + 1;
                 next_state <= SEND_PAYLOAD;
             end
-            SEND_PAYLOAD: begin
+            SEND_PAYLOAD: begin   
+                frame_count <= 1;             
+                axis_tx_tvalid <= 1;
+                done_serializer <= 0;
                 if(frame_count == NUMBER_PACKET) begin
                     axis_tx_tlast <= 1;
+                    frame_count <= 1;
+                    axis_tx_tdata <= {data_read_reg[1023:976], router_id_send, 1'b0};
+                    next_state <= DONE;
                 end else begin
                     axis_tx_tlast <= 0;
-                end
-                if(frame_count == NUMBER_PACKET) begin
-                    frame_count <= 0;
-                    next_state <= DONE;
-                end else begin
                     frame_count <= frame_count + 1;
+                    axis_tx_tdata <= {data_read_reg[HOST_PAYLOAD_WIDTH*frame_count-1 -: HOST_PAYLOAD_WIDTH], router_id_send, 1'b0};
                     next_state <= SEND_PAYLOAD;
-                end
-
-                axis_tx_tvalid <= 1;
-                axis_tx_tdata <= {v_data_read[(frame_count)],router_id_send,1'b0};
-                done_serializer <= 0;
-                if (send_data_valid) begin
-                    next_state <= SEND_PAYLOAD;
-                end else begin
-                    next_state <= DONE;
                 end
             end
             DONE: begin
                 axis_tx_tvalid <= 0;
-                axis_tx_tlast <= 1;
+                axis_tx_tlast <= 0;
                 axis_tx_tdata <= 0;
                 done_serializer <= 1;
                 next_state <= IDLE;
@@ -100,4 +104,5 @@ always @(posedge clk or negedge rst_n) begin
         endcase
     end
 end
+
 endmodule

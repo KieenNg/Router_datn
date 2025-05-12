@@ -1,0 +1,16 @@
+/home/socone/Documents/DATN/code/serializer/serializer.v {1 {vlog -work work -vopt -stats=none /home/socone/Documents/DATN/code/serializer/serializer.v
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 17 2018
+-- Compiling module serializer
+
+Top level modules:
+	serializer
+
+} {} {}} /home/socone/Documents/DATN/code/serializer/tb_serializer.sv {2 {vlog -work work -vopt -sv -stats=none /home/socone/Documents/DATN/code/serializer/tb_serializer.sv
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 17 2018
+-- Compiling module tb_serializer
+** Warning: /home/socone/Documents/DATN/code/serializer/tb_serializer.sv(115): (vlog-2643) Unterminated string literal continues onto next line.
+
+Top level modules:
+	tb_serializer
+
+} {} {}}
