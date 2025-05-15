@@ -1,8 +1,0 @@
-/media/kien/data/kien/DATN/code/Router_datn/input_port_0/testbench/tb_merge_addr_data.sv {1 {vlog -work work -vopt -sv -stats=none /media/kien/data/kien/DATN/code/Router_datn/input_port_0/testbench/tb_merge_addr_data.sv
-QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 17 2018
--- Compiling module tb_merge_addr_data
-
-Top level modules:
-	tb_merge_addr_data
-
-} {} {}}

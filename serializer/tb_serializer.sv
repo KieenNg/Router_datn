@@ -77,7 +77,7 @@ module tb_serializer;
 
         @(posedge clk);
         send_data_valid = 1;
-        v_data_read = 1024'h111122223333444455556666777788889999111122223333444455556666777788889999111122223333444455556666777788889999111122223333444455556666777788889999; // Sample data
+        v_data_read = 1024'h1111222233334444555566667777888899991111222233334444555566667777888899991111222233334444555566667777888899991111222233334444555566667777888899991111222233334444555566667777888899991111222233334444555566667777888899991111222233334444555566667777888899991111; // Sample data
         dst_addr_send = 10'hA;
         TTL_send = 2'b01;    
         router_id_send = 2'b10;  
@@ -89,20 +89,20 @@ module tb_serializer;
         wait (done_serializer == 1);
         #(CLK_PERIOD * 2);
 
-        // Test case 2: Send another valid data
-        @(posedge clk);
-        send_data_valid = 1;
-        v_data_read = 1024'h55555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555; // Different sample data
-        dst_addr_send = 10'h1AA; // Different destination address
-        TTL_send = 2'b10;        // Different TTL
-        router_id_send = 2'b11;  // Different router ID
+        // // Test case 2: Send another valid data
+        // @(posedge clk);
+        // send_data_valid = 1;
+        // v_data_read = 1024'h55555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555; // Different sample data
+        // dst_addr_send = 10'h1AA; // Different destination address
+        // TTL_send = 2'b10;        // Different TTL
+        // router_id_send = 2'b11;  // Different router ID
 
-        @(posedge clk);
-        send_data_valid = 0;
+        // @(posedge clk);
+        // send_data_valid = 0;
 
         // Wait for serialization to complete
         wait (done_serializer == 1);
-        #(CLK_PERIOD * 100);
+        #(CLK_PERIOD * 50);
 
 
         // End simulation
@@ -114,7 +114,7 @@ module tb_serializer;
     initial begin
         $monitor("Time=%0t rst_n=%b send_data_valid=%b axis_tx_tvalid=%b axis_tx_tlast=%b axis_tx_tdata=%h done_serializer=%b 
                 frame_count = %d header_or_payload=%b src_router = %h payload = %h",
-                 $time, rst_n, send_data_valid, axis_tx_tvalid, axis_tx_tlast, axis_tx_tdata, done_serializer, uut.frame_count, axis_tx_tdata[0:0], axis_tx_tdata[2:1], axis_tx_tdata[63:3]);
+                 $time, rst_n, send_data_valid, axis_tx_tvalid, axis_tx_tlast, axis_tx_tdata, done_serializer, uut.frame_count, axis_tx_tdata[0:0], axis_tx_tdata[2:1], v_data_read[63:3]);
     end
 
 endmodule

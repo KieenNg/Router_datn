@@ -1,0 +1,10 @@
+`define 	CLK_PERIOD			10
+`define     AURORA_DATA_WIDTH   64
+`define SEND_DATA_WIDTH          1024
+`define RECOGNIZE_HEADER_WIDTH  1
+`define RECOGNIZE_ROUTER_WIDTH  2
+`define HOST_PAYLOAD_WIDTH      61//= AURORA_DATA_WIDTH - RECOGNIZE_HEADER_WIDTH - RECOGNIZE_ROUTER_WIDTH;
+`define NUMBER_PACKET           17    //= SEND_DATA_WIDTH / HOST_PAYLOAD_WIDTH + 1; // 17
+`define ADDR_WIDTH              10
+`define NUMBER_OF_TTL           1
+`define TTL_WIDTH               $clog2(NUMBER_OF_TTL)

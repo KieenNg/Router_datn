@@ -78,8 +78,7 @@ always @(posedge clk or negedge rst_n) begin
                 done_serializer <= 0;
                 next_state <= SEND_PAYLOAD;
             end
-            SEND_PAYLOAD: begin   
-                frame_count <= 1;             
+            SEND_PAYLOAD: begin               
                 axis_tx_tvalid <= 1;
                 done_serializer <= 0;
                 if(frame_count == NUMBER_PACKET) begin
