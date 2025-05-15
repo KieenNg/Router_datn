@@ -1,0 +1,119 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/kien/Documents/VAE/ktoon
+T_opt
+!s110 1747279263
+V97WMT<B6Qd_8Ie_g<S0D23
+04 18 4 work tb_merge_addr_data fast 0
+=2-d880838bd409-68255d9f-79866-39cd8
+Z1 o-quiet -auto_acc_if_foreign -work work +acc
+Z2 tCvgOpt 0
+n@_opt
+Z3 OL;O;10.7c;67
+R0
+T_opt1
+!s110 1747285966
+VO=I@EImbUFLV2:Bgj5^>82
+04 15 4 work tb_encap_packet fast 0
+=2-d880838bd409-682577ce-45a7a-3cc38
+R1
+R2
+n@_opt1
+R3
+vencap_packet
+Z4 !s110 1747285963
+!i10b 1
+!s100 Ve=JA3zMD?z8__K<RQNJD1
+IhaZR2>Ug84O8^;z0@hjJm2
+Z5 VDg1SIo80bB@j0V0VzS_@n1
+Z6 d/media/kien/data/kien/DATN/code/Router_datn/input_port_0
+w1747285954
+8/media/kien/data/kien/DATN/code/Router_datn/input_port_0/encap_packet.v
+F/media/kien/data/kien/DATN/code/Router_datn/input_port_0/encap_packet.v
+L0 1
+Z7 OL;L;10.7c;67
+r1
+!s85 0
+31
+Z8 !s108 1747285963.000000
+!s107 /media/kien/data/kien/DATN/code/Router_datn/input_port_0/encap_packet.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/media/kien/data/kien/DATN/code/Router_datn/input_port_0/encap_packet.v|
+!i113 0
+Z9 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R2
+vmerge_addr_data
+R4
+!i10b 1
+!s100 KEPnFMNMAWgc24Sc85lB00
+I^TKO8LDC<a^9o4aMdAcNY0
+R5
+R6
+w1747278527
+8/media/kien/data/kien/DATN/code/Router_datn/input_port_0/merge_addr_data.v
+F/media/kien/data/kien/DATN/code/Router_datn/input_port_0/merge_addr_data.v
+L0 1
+R7
+r1
+!s85 0
+31
+R8
+!s107 /media/kien/data/kien/DATN/code/Router_datn/input_port_0/merge_addr_data.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/media/kien/data/kien/DATN/code/Router_datn/input_port_0/merge_addr_data.v|
+!i113 0
+R9
+R2
+vtb_encap_packet
+Z10 DXx6 sv_std 3 std 0 22 d=_JfHTnXCN[H5FjiaJJc0
+R4
+!i10b 1
+!s100 4=>7A1GI@[Fj<KO@C8hK70
+IjRRLka4_>Hn]QJ4;Ka=AL3
+R5
+!s105 tb_encap_packet_sv_unit
+S1
+R6
+w1747285945
+8/media/kien/data/kien/DATN/code/Router_datn/input_port_0/testbench/tb_encap_packet.sv
+F/media/kien/data/kien/DATN/code/Router_datn/input_port_0/testbench/tb_encap_packet.sv
+L0 3
+R7
+r1
+!s85 0
+31
+R8
+!s107 /media/kien/data/kien/DATN/code/Router_datn/input_port_0/testbench/tb_encap_packet.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/media/kien/data/kien/DATN/code/Router_datn/input_port_0/testbench/tb_encap_packet.sv|
+!i113 0
+Z11 o-work work -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R2
+vtb_merge_addr_data
+R10
+R4
+!i10b 1
+!s100 [6Q3IIiDQT?X4ZDe2HK4S1
+ITl5nUVohbP`4WLP^DCgGa1
+R5
+!s105 tb_merge_addr_data_sv_unit
+S1
+R6
+w1747279345
+8/media/kien/data/kien/DATN/code/Router_datn/input_port_0/testbench/tb_merge_addr_data.sv
+F/media/kien/data/kien/DATN/code/Router_datn/input_port_0/testbench/tb_merge_addr_data.sv
+L0 3
+R7
+r1
+!s85 0
+31
+R8
+!s107 /media/kien/data/kien/DATN/code/Router_datn/input_port_0/testbench/tb_merge_addr_data.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/media/kien/data/kien/DATN/code/Router_datn/input_port_0/testbench/tb_merge_addr_data.sv|
+!i113 0
+R11
+R2
