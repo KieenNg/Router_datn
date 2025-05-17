@@ -78,14 +78,41 @@ module tb_router_controller;
         //input port 1
         empty_input_port_1 = 1;
         //crossbar
-        data_port1_before = 64'b0010001000100010001000100010001000100010001000100010001_10_01111_01;
+        data_port1_before = 64'b0000000000000000000000000000000000000000000000000000000_00_00000_00;
+        valid_dfx_data = 0;
+        dst_addr_arbiter_recv = 9'h0;
         #10;
         router_start_req = 1;
         router_scr_addr = 10'h6;
         router_dst_addr = 10'hA;
-        read_req = 1;
+        read_gnt = 1;
+        write_gnt = 0; 
+        //input port 0
+        empty_input_port_0 = 0;
+        ready_encap_dfx = 1;
+        //input port 1
+        empty_input_port_1 = 0;
+        //crossbar
+        data_port1_before = 64'b0010001000100010001000100010001000100010001000100010001_10_01111_01;
+        valid_dfx_data = 1;
+        dst_addr_arbiter_recv = 9'hAB;
         #10;
-
+        router_start_req = 1;
+        router_scr_addr = 10'h6;
+        router_dst_addr = 10'hA;
+        read_gnt = 1;
+        write_gnt = 0; 
+        //input port 0
+        empty_input_port_0 = 1;
+        ready_encap_dfx = 1;
+        //input port 1
+        empty_input_port_1 = 0;
+        //crossbar
+        data_port1_before = 64'b0010001000100010001000100010001000100010001000100010001_10_01111_01;
+        valid_dfx_data = 1;
+        dst_addr_arbiter_recv = 9'hAB;
+        #200;
+        $finish;
     end
 
     // Monitor changes
