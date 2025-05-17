@@ -30,7 +30,7 @@ always @(posedge clk or negedge rst_n) begin
                 index <= index + 55;
                 valid_dfx_data <= 1;
             end else begin
-                data[1033:990] <= frame [43:0];
+                data[1033:990] <= data_in_dfx [52:9];
                 index <= index + 55;
                 valid_dfx_data <= 1;
             end

@@ -16,7 +16,8 @@ module encap_packet
     input [HEADER_WIDTH - 1:0]              header_pkt_send,
     input                                   arbiter_gnt,
     output reg [AURORA_DATA_WIDTH - 1:0]    data_in_port_0,
-    output reg                              data_encap_valid
+    output reg                              data_encap_valid,
+    output reg                              ready_encap_dfx
 );
 reg [DATA_DFX_WIDTH - 1:0] data_dfx_send_reg;
 reg [HEADER_WIDTH - 1:0] header_pkt_send_reg;
@@ -45,10 +46,12 @@ always @(posedge clk or negedge rst_n) begin
         if(data_dfx_send_reg == 1034'b0) begin
             data_encap_valid <= 0;
             data_in_port_0 <= 64'b0;
+            ready_encap_dfx <= 1;
         end else begin
             data_in_port_0 <= {data_dfx_send_reg[54:0], header_pkt_send_reg};
-            data_dfx_send_reg <= {55'b0, data_dfx_send_reg[DATA_DFX_WIDTH - 1:55]};
+            data_dfx_send_reg <= {55'b0, data_dfx_send_reg[DATA_DFX_WIDTH - 1 :55]};
             data_encap_valid <= 1;
+            ready_encap_dfx <= 0;
         end
     end
 end
