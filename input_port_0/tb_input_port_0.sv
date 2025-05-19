@@ -32,7 +32,7 @@ module tb_input_port_0();
   
  reg clk_0 = 1'b1;
  reg rst_n_0;
-  input_port_0 input_port_0_i(
+  input_port_0_wrapper input_port_0_wrapper_i(
         .clk_0(clk_0),
         .rst_n_0(rst_n_0),
         .arbiter_gnt_0(arbiter_gnt_0),
