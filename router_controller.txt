@@ -1,0 +1,56 @@
+//totalcontroller
+if(router_done==0){
+	router_start_req = 1;
+	src_addr [9:0] = 10'd6;
+	dst_addr [9:0] = 10'd10;
+}
+else {
+	router_start_req = 0;
+}
+
+///Router///
+if(router_start_req){
+	if(ready_encap_dfx == 1){
+		read_req = 1
+		addr[9:0] = router_src_addr[9:0]
+		if(read_gnt){
+			router_dst_addr_send[9:0] = router_dst_addr[9:0]
+			header_input_port_0[8:0] = {TTL[1:0] = 3, sequence_pkt[4:0] = 1, src_router[1:0] = 2}
+		}
+	}
+	else {
+		read_req = 0
+	}
+	
+}
+
+if(!empty_input_port_0){
+	rd_input_port_0 = 1
+	control_crossbar[1:0] = 2'b01
+	we_output_port_1 = 1
+	//router_done = 1
+}
+
+if(!empty_input_port_1){
+	rd_input_port_1 = 1
+	if(data_port_1_before[8:7] == 1){
+		data_port_1_after [8:7] = data_port_1_before[8:7] - 1
+		control_crossbar[1:0] = 2'b10
+		we_output_port_0 = 1 
+	}
+	else {
+		data_port_1_after [8:7] = data_port_1_before[8:7] - 1
+		control_crossbar[1:0] = 2'b11
+		we_output_port_0 = 1
+		we_output_port_1 = 1
+	}
+}
+
+
+if(valid_dfx_data){
+	rd_output_port_0 = 1
+	write_req = 1
+	if(write_gnt == 1){
+		addr[9:0] = router_dst_addr_recv[9:0]
+	}
+}
