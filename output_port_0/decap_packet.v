@@ -14,6 +14,7 @@ module decap_packet
     output reg                              done_decap_pkt
 );
 reg [DATA_DFX_WIDTH - 1:0] data_dfx_recv_reg;
+<<<<<<< HEAD
 reg [$clog2(DATA_DFX_WIDTH)-1:0] frame_cnt;
 reg start_decap_pkt;
 always @(posedge clk or negedge rst_n) begin
@@ -21,6 +22,18 @@ always @(posedge clk or negedge rst_n) begin
         start_decap_pkt <= 0;
     end else begin
         start_decap_pkt <= rd_output_port_0;
+=======
+reg [$clog2(19)-1:0] frame_cnt;
+reg start_decap_pkt;
+reg start_decap_pkt_next;
+always @(posedge clk or negedge rst_n) begin
+    if(!rst_n) begin
+        start_decap_pkt <= 0;
+        start_decap_pkt_next <= 0;
+    end else begin
+        start_decap_pkt_next <= rd_output_port_0;
+        start_decap_pkt <= start_decap_pkt_next;
+>>>>>>> fa5045353e1475d19c3ea3508ede55759948d067
     end
 end
 always @(posedge clk or negedge rst_n) begin
@@ -67,4 +80,8 @@ end
 //             end
 //         end
 //     end
+<<<<<<< HEAD
 endmodule
+=======
+endmodule
+>>>>>>> fa5045353e1475d19c3ea3508ede55759948d067
