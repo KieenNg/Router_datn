@@ -20,7 +20,8 @@ module tb_router_controller;
     logic write_gnt;
     logic read_req;
     logic write_req;
-    logic [ADDR_WIDTH-1:0] addr;
+    logic [ADDR_WIDTH-1:0] src_addr;
+    logic [ADDR_WIDTH-1:0] dst_addr;
     // Crossbar signals
     logic [AURORA_DATA_WIDTH-1:0] data_port1_before;
     logic [AURORA_DATA_WIDTH-1:0] data_port1_after;
