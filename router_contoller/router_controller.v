@@ -1,4 +1,4 @@
-module router_controller 
+module router_controller
 #(
     parameter AURORA_DATA_WIDTH = 64,
     parameter ADDR_WIDTH = 10,
@@ -17,8 +17,8 @@ module router_controller
     input                           write_gnt,
     output reg                      read_req,
     output reg                      write_req,
-    output reg [ADDR_WIDTH - 1:0]   src_addr,
-    output reg [ADDR_WIDTH - 1:0]   dst_addr,
+    output reg [ADDR_WIDTH - 1:0]   arbiter_src_addr,
+    output reg [ADDR_WIDTH - 1:0]   arbiter_dst_addr,
 ////crossbar//////
     input [AURORA_DATA_WIDTH - 1:0]         data_port1_before,
     output reg [AURORA_DATA_WIDTH - 1:0]    data_port1_after,
@@ -47,13 +47,13 @@ reg [RECOGNIZE_ROUTER_WIDTH - 1:0] pkt_src_router = 2'b00;
 always @(posedge clk or negedge rst_n) begin
     if(!rst_n) begin
         read_req    <= 0;
-        src_addr        <= 9'd0;
+        arbiter_src_addr        <= 9'd0;
         router_done <= 0;
     end
     else begin
         if(router_start_req) begin
             read_req <= 1;
-            src_addr <= router_scr_addr;
+            arbiter_src_addr <= router_scr_addr;
             if(read_gnt) begin
                 read_req <= 0;
                 router_done <= 1;
@@ -64,7 +64,7 @@ always @(posedge clk or negedge rst_n) begin
         end
         else begin
             read_req <= 0;
-            src_addr <= 9'd0;
+            arbiter_src_addr <= 9'd0;
             router_done <= 0;
         end
     end  
@@ -174,7 +174,7 @@ always @(posedge clk or negedge rst_n) begin
     if(!rst_n) begin
         rd_output_port_0 <= 0;
         write_req <= 0;
-        dst_addr <= 0;
+        arbiter_dst_addr <= 0;
     end
     else begin
         if(valid_dfx_data) begin
@@ -182,18 +182,18 @@ always @(posedge clk or negedge rst_n) begin
             if(write_gnt) begin
                 write_req <= 0;
                 rd_output_port_0 <= 1;
-                dst_addr <= dst_addr_arbiter_recv;
+                arbiter_dst_addr <= dst_addr_arbiter_recv;
             end
             else begin
                 write_req <= 0;
                 rd_output_port_0 <= 0;
-                dst_addr <= dst_addr_arbiter_recv;
+                arbiter_dst_addr <= dst_addr_arbiter_recv;
             end
         end
         else begin
             write_req <= 0;
             rd_output_port_0 <= 0;
-            dst_addr <= 0;
+            arbiter_dst_addr <= 0;
         end
     end
 end
