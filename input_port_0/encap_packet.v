@@ -58,51 +58,5 @@ always @(posedge clk or negedge rst_n) begin
         end 
     end
 end
-// always @(posedge clk or negedge rst_n) begin
-//     if(!rst_n) begin
-//         data_dfx_send_reg <= 0;
-//         header_pkt_send_reg <= 0;
-//         start_encap_dfx <= 0;
-//     end else begin
-//         if (arbiter_gnt && !start_encap_dfx) begin
-//             data_dfx_send_reg <= data_dfx_send;
-//             header_pkt_send_reg <= header_pkt_send;
-//             start_encap_dfx <= 1;
-//         end else begin
-//             data_dfx_send_reg <= data_dfx_send_reg;
-//             header_pkt_send_reg <= header_pkt_send_reg;
-//             start_encap_dfx <= 0;
-//         end
-//     end
-// end
-
-// always @(posedge clk or negedge rst_n) begin
-//     if(!rst_n) begin
-//         data_in_port_0 <= 64'b0;
-//         data_encap_valid <= 0;
-//         ready_encap_dfx <= 1;
-//         index <= 0;
-//     end else begin
-//         if(start_encap_dfx) begin
-//             if(index < 19) begin
-//             ready_encap_dfx <= 0;
-//             data_encap_valid <= 1;
-//             data_in_port_0 <= {data_dfx_send_reg[index*55+:55], header_pkt_send_reg};
-//             index <= index + 1;
-//             end else begin
-//                 ready_encap_dfx <= 1;
-//                 data_in_port_0 <= 64'b0;
-//                 data_encap_valid <= 0;
-//             end
-//         end
-//         else begin
-//             data_encap_valid <= 0;
-//             ready_encap_dfx <= 1;
-//             index <= 0;
-//             data_in_port_0 <= 64'b0;
-//         end
-        
-//     end
-// end
 
 endmodule

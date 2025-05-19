@@ -1,9 +1,9 @@
-D:/DATN/code/Router_datn/input_port_0/merge_addr_data.v {1 {vlog -work work -vopt -stats=none D:/DATN/code/Router_datn/input_port_0/merge_addr_data.v
+D:/DATN/code/Router_datn/router_contoller/tb_router_controller.sv {1 {vlog -work work -vopt -sv -stats=none D:/DATN/code/Router_datn/router_contoller/tb_router_controller.sv
 QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
--- Compiling module merge_addr_data
+-- Compiling module tb_router_controller
 
 Top level modules:
-	merge_addr_data
+	tb_router_controller
 
 } {} {}} D:/DATN/code/Router_datn/router_contoller/router_controller.v {1 {vlog -work work -vopt -stats=none D:/DATN/code/Router_datn/router_contoller/router_controller.v
 QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
@@ -12,12 +12,31 @@ QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
 Top level modules:
 	router_controller
 
-} {} {}} D:/DATN/code/Router_datn/router_contoller/tb_router_controller.sv {1 {vlog -work work -vopt -sv -stats=none D:/DATN/code/Router_datn/router_contoller/tb_router_controller.sv
+} {} {}} D:/DATN/code/Router_datn/input_port_0/merge_addr_data.v {1 {vlog -work work -vopt -stats=none D:/DATN/code/Router_datn/input_port_0/merge_addr_data.v
 QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
--- Compiling module tb_router_controller
+-- Compiling module merge_addr_data
 
 Top level modules:
-	tb_router_controller
+	merge_addr_data
+
+} {} {}} D:/DATN/code/Router_datn/output_port_0/testbench/tb_decap_packet.sv {0 {vlog -work work -vopt -sv -stats=none D:/DATN/code/Router_datn/output_port_0/testbench/tb_decap_packet.sv
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+-- Compiling module tb_decap_packet
+** Error: D:/DATN/code/Router_datn/output_port_0/testbench/tb_decap_packet.sv(41): (vlog-2730) Undefined variable: 'empty_output_queue_0'.
+
+} {4.0 5.0} {}} D:/DATN/code/Router_datn/output_port_0/separate_addr_data.v {1 {vlog -work work -vopt -stats=none D:/DATN/code/Router_datn/output_port_0/separate_addr_data.v
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+-- Compiling module separate_addr_data
+
+Top level modules:
+	separate_addr_data
+
+} {} {}} D:/DATN/code/Router_datn/input_port_0/testbench/tb_encap_packet.sv {1 {vlog -work work -vopt -sv -stats=none D:/DATN/code/Router_datn/input_port_0/testbench/tb_encap_packet.sv
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+-- Compiling module tb_encap_packet
+
+Top level modules:
+	tb_encap_packet
 
 } {} {}} D:/DATN/code/Router_datn/input_port_0/encap_packet.v {1 {vlog -work work -vopt -stats=none D:/DATN/code/Router_datn/input_port_0/encap_packet.v
 QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
