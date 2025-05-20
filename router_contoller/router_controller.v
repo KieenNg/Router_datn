@@ -79,7 +79,7 @@ always @(posedge clk or negedge rst_n) begin
             read_req <= 1;
             arbiter_src_addr <= router_scr_addr;
             if(read_gnt) begin
-                if(count == 3'd4) begin
+                if(count == 3'd2) begin
                     count <= 3'd0;
                     read_req <= 0; 
                     router_done <= 1;             
