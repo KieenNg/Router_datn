@@ -71,15 +71,16 @@ reg [2:0] count;
 always @(posedge clk or negedge rst_n) begin
     if(!rst_n) begin
         read_req    <= 0;
-        arbiter_src_addr        <= 9'd0;
+        arbiter_src_addr <= 9'd0;
         router_done <= 0;
+        count <= 0;
     end
     else begin
         if(router_start_req) begin
             read_req <= 1;
             arbiter_src_addr <= router_scr_addr;
             if(read_gnt) begin
-                if(count == 3'd2) begin
+                if(count == 3'h1) begin
                     count <= 3'd0;
                     read_req <= 0; 
                     router_done <= 1;             
@@ -89,8 +90,6 @@ always @(posedge clk or negedge rst_n) begin
                     read_req <= 1; 
                     router_done <= 0;               
                 end
-                //read_req <= 0;
-                //router_done <= 1;
             end
             else begin
                 router_done <= 0;
