@@ -44,29 +44,30 @@ reg [1:0] pkt_TTL = 2'b10;
 reg [$clog2(NUMBER_PACKET) - 1:0] pkt_numer;
 reg [RECOGNIZE_ROUTER_WIDTH - 1:0] pkt_src_router = 2'b00;
 ///////////////arbiter////////////
-reg next_state;
-parameter IDLE = 3'b000;
-parameter READ = 3'b001;
-parameter READDELAY = 3'b010;
-parameter ROUTER_PROC = 3'b011;
-parameter ROUTER_PROCDELAY = 3'b100;
-always @(*) begin
-    case(state)
-        IDLE: begin
-            next_state = router_start_req? READ : IDLE;
-        end
-        READ: begin
-            next_state = read_gnt? READDELAY : READ;
-        end
-        READDELAY: begin
-            next_state = ROUTER_PROC;
-        end
-        ROUTER_PROC: begin
-            next_state = router_done? ROUTER_PROCDELAY : ROUTER_PROC;
-        end
+//reg next_state;
+//parameter IDLE = 3'b000;
+//parameter READ = 3'b001;
+//parameter READDELAY = 3'b010;
+//parameter ROUTER_PROC = 3'b011;
+//parameter ROUTER_PROCDELAY = 3'b100;
+//always @(*) begin
+//    case(state)
+//        IDLE: begin
+//            next_state = router_start_req? READ : IDLE;
+//        end
+//        READ: begin
+//            next_state = read_gnt? READDELAY : READ;
+//        end
+//        READDELAY: begin
+//            next_state = ROUTER_PROC;
+//        end
+//        ROUTER_PROC: begin
+//            next_state = router_done? ROUTER_PROCDELAY : ROUTER_PROC;
+//        end
 
-    endcase
-end
+//    endcase
+//end
+reg [2:0] count;
 always @(posedge clk or negedge rst_n) begin
     if(!rst_n) begin
         read_req    <= 0;
@@ -78,8 +79,18 @@ always @(posedge clk or negedge rst_n) begin
             read_req <= 1;
             arbiter_src_addr <= router_scr_addr;
             if(read_gnt) begin
-                read_req <= 0;
-                router_done <= 1;
+                if(count == 3'd4) begin
+                    count <= 3'd0;
+                    read_req <= 0; 
+                    router_done <= 1;             
+                end
+                else begin
+                    count <= count +1;
+                    read_req <= 1; 
+                    router_done <= 0;               
+                end
+                //read_req <= 0;
+                //router_done <= 1;
             end
             else begin
                 router_done <= 0;
