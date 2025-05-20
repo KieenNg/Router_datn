@@ -28,29 +28,29 @@ module arbiter_wrapper
     input clk,
     input rst_n,
     //BRAM port A
-    output reg [VRF_ADDR_WIDTH-1:0] bram_a_addr_o,
+    output [VRF_ADDR_WIDTH-1:0] bram_a_addr_o,
     input [VRF_DATA_WIDTH-1:0] bram_a_dout_i,
-    output reg [VRF_DATA_WIDTH-1:0] bram_a_din_o,
-    output reg bram_a_en_o,
-    output reg bram_a_we_o,
+    output [VRF_DATA_WIDTH-1:0] bram_a_din_o,
+    output bram_a_en_o,
+    output bram_a_we_o,
 
     //BRAM port B
-    output reg [VRF_ADDR_WIDTH-1:0] bram_b_addr_o,
+    output  [VRF_ADDR_WIDTH-1:0] bram_b_addr_o,
     input [VRF_DATA_WIDTH-1:0] bram_b_dout_i,
-    output reg [VRF_DATA_WIDTH-1:0] bram_b_din_o,
-    output reg bram_b_en_o,
-    output reg bram_b_we_o,
+    output  [VRF_DATA_WIDTH-1:0] bram_b_din_o,
+    output  bram_b_en_o,
+    output  bram_b_we_o,
     
      // Router interface
     input [VRF_ADDR_WIDTH-1:0] src_addr,
-    output reg [VRF_DATA_WIDTH-1:0] data_arbiter_send,
+    output  [VRF_DATA_WIDTH-1:0] data_arbiter_send,
     input read_req,
-    output reg read_gnt,
+    output  read_gnt,
     
     input [VRF_ADDR_WIDTH-1:0] dst_addr,
     input [VRF_DATA_WIDTH-1:0] data_arbiter_recv,
     input write_req,
-    output reg write_gnt
+    output  write_gnt
     );
     arbiter arbiter_i(
         .clk(clk),
