@@ -27,20 +27,6 @@ module arbiter_bram
 ) (
     input clk,
     input rst_n,
-//    //BRAM port A
-//    output [VRF_ADDR_WIDTH-1:0] bram_a_addr_o,
-//    input [VRF_DATA_WIDTH-1:0] bram_a_dout_i,
-//    output [VRF_DATA_WIDTH-1:0] bram_a_din_o,
-//    output bram_a_en_o,
-//    output bram_a_we_o,
-
-//    //BRAM port B
-//    output  [VRF_ADDR_WIDTH-1:0] bram_b_addr_o,
-//    input [VRF_DATA_WIDTH-1:0] bram_b_dout_i,
-//    output  [VRF_DATA_WIDTH-1:0] bram_b_din_o,
-//    output  bram_b_en_o,
-//    output  bram_b_we_o,
-    
      // Router interface
     input [VRF_ADDR_WIDTH-1:0] src_addr,
     output  [VRF_DATA_WIDTH-1:0] data_arbiter_send,

@@ -35,7 +35,7 @@ module router_controller
     output reg          rd_input_port_1,
 /////////////output port 0////////////
     input                           empty_output_port_0,
-    input                           done_encap_pkt,
+    input                           decap_done,
     input [ADDR_WIDTH - 1:0]        dst_addr_arbiter_recv,
     input [8:0]                     header_pkt_recv,
     output reg                      start_decap_pkt,
@@ -45,7 +45,7 @@ module router_controller
     output reg                      we_output_port_1
 );
 reg [1:0] pkt_TTL = 2'b10;
-reg [$clog2(NUMBER_PACKET) - 1:0] pkt_numer;
+reg [$clog2(NUMBER_PACKET) - 1:0] pkt_number;
 reg [RECOGNIZE_ROUTER_WIDTH - 1:0] pkt_src_router = 2'b00;
 ///////////////arbiter////////////
 reg [3:0] current_state;
@@ -155,9 +155,9 @@ always @(*) begin
             arbiter_read_req = 1;
             arbiter_write_req = 0;
             //input port 0
-            start_encap_pkt = 1;
+            start_encap_pkt = 0;
             router_dst_addr_send = router_dst_addr;
-            header_pkt_send = {pkt_TTL, pkt_numer, pkt_src_router};
+            header_pkt_send = 9'h0;
             rd_input_port_0 = 0;
             //input port 1
             rd_input_port_1 = 0;
@@ -171,169 +171,58 @@ always @(*) begin
             data_port1_after = 64'h0;
             control_crossbar = 2'b00;            
         end
+        ENCAP_PKT: begin
+            router_done = 0;
+            arbiter_src_addr = router_scr_addr;
+            arbiter_dst_addr = 10'h0;
+            arbiter_read_req = 0;
+            arbiter_write_req = 0;
+            //input port 0
+            start_encap_pkt = 1;
+            router_dst_addr_send = router_dst_addr;
+            header_pkt_send = {pkt_TTL, pkt_number, pkt_src_router};
+            rd_input_port_0 = 1;
+            //input port 1
+            rd_input_port_1 = 0;
+            //output port 0
+            rd_input_port_0 = 0;
+            we_output_port_0 = 0;
+            start_decap_pkt = 0;
+            //output port 1
+            we_output_port_1 = 0;
+            //crossbar
+            data_port1_after = data_port1_before;
+            control_crossbar = 2'b01;            
+        end
     endcase
 end
-// reg [2:0] count;
-// always @(posedge clk or negedge rst_n) begin
-//     if(!rst_n) begin
-//         read_req    <= 0;
-//         arbiter_src_addr <= 9'd0;
-//         router_done <= 0;
-//         count <= 0;
-//     end
-//     else begin
-//         if(router_start_req) begin
-//             read_req <= 1;
-//             arbiter_src_addr <= router_scr_addr;
-//             if(read_gnt) begin
-//                 if(count == 3'h1) begin
-//                     count <= 3'd0;
-//                     read_req <= 0; 
-//                     router_done <= 1;             
-//                 end
-//                 else begin
-//                     count <= count +1;
-//                     read_req <= 1; 
-//                     router_done <= 0;               
-//                 end
-//             end
-//             else begin
-//                 router_done <= 0;
-//             end
-//         end
-//         else begin
-//             read_req <= 0;
-//             arbiter_src_addr <= 9'd0;
-//             router_done <= 0;
-//         end
-//     end  
-// end
-// /////input port 0//////////
-// always @(posedge clk or negedge rst_n) begin
-//     if(!rst_n) begin
-//         pkt_numer   <= 1'b0;
-//         router_dst_addr_send <= 0;
-//         header_pkt_send <= 0;
-//     end
-//     else begin
-//         if(ready_encap_dfx) begin
-//             if(pkt_numer == NUMBER_PACKET) begin
-//                 pkt_numer <= 1'b1;
-//             end
-//             else begin
-//                 pkt_numer <= pkt_numer + 1;
-//             end
-//             router_dst_addr_send <= router_dst_addr;
-//             header_pkt_send <= {pkt_TTL, pkt_numer, pkt_src_router};
-//         end
-//         else begin
-//             pkt_numer <= pkt_numer;
-//             router_dst_addr_send <= router_dst_addr_send;
-//             header_pkt_send <= header_pkt_send;
-//         end
+always @(posedge clk or negedge rst_n) begin
+    if(!rst_n) begin
+        pkt_number <= 0;
+        pkt_TTL <= 2'b10;
+        pkt_src_router <= 2'b00;
+    end
+    else begin
+        case (current_state)
+            IDLE: begin
 
-//     end
-// end
-// always @(posedge clk or negedge rst_n) begin
-//     if(!rst_n) begin
-//         rd_input_port_0 <= 0;
-//     end
-//     else begin
-//         if(!empty_input_port_0) begin
-//             rd_input_port_0 <= 1;
-//         end
-//         else begin
-//             rd_input_port_0 <= 0;
-//         end
-//     end
-// end
-// /////input port 1/////////
-// always @(posedge clk or negedge rst_n) begin
-//     if(!rst_n) begin
-//         rd_input_port_1 <= 0;
-//     end
-//     else begin
-//         if(!empty_input_port_1) begin
-//             rd_input_port_1 <= 1;
-//         end
-//         else begin
-//             rd_input_port_1 <= 0;
-//         end
-//     end
-// end
+            end
+            READ_ARBITER: begin
 
-// always @(posedge clk or negedge rst_n) begin
-//     if(!rst_n) begin
-//         data_port1_after <= 63'b0;
-//         control_crossbar <= 2'b00;
-//         we_output_port_0 <= 0;
-//         we_output_port_1 <= 0;
-//     end
-//     else begin
-//         if(!empty_input_port_0) begin
-//             data_port1_after <= data_port1_after;
-//             control_crossbar <= 2'b01;
-//             we_output_port_0 <= 0;
-//             we_output_port_1 <= 1;
-//         end
-//         else if(!empty_input_port_1) begin
-//             if(data_port1_before[8:7] > 1)begin
-//                 data_port1_after[8:7] <= data_port1_before[8:7] - 1;
-//                 data_port1_after[63:9] <= data_port1_before[63:9];
-//                 data_port1_after[6:0] <= data_port1_before[6:0];
-//                 control_crossbar <= 2'b11;
-//                 we_output_port_0 <= 1;
-//                 we_output_port_1 <= 1;
-//             end
-//             else if(data_port1_before[8:7] == 1) begin
-//                 data_port1_after[8:7] <= 0;
-//                 data_port1_after[63:9] <= data_port1_before[63:9];
-//                 data_port1_after[6:0] <= data_port1_before[6:0];
-//                 control_crossbar <= 2'b10;
-//                 we_output_port_0 <= 1;
-//                 we_output_port_1 <= 0;
-//             end
-//             else begin
-//                 data_port1_after <= 63'b0;
-//                 control_crossbar <= 2'b00;
-//                 we_output_port_0 <= 0;
-//                 we_output_port_1 <= 0;
-//             end
-//         end
-//         else begin
-//             data_port1_after <= 63'b0;
-//             control_crossbar <= 2'b00;
-//             we_output_port_0 <= 0;
-//             we_output_port_1 <= 0;
-//         end
-//     end
-// end
-// /////output port 0/////////
-// always @(posedge clk or negedge rst_n) begin
-//     if(!rst_n) begin
-//         rd_output_port_0 <= 0;
-//         write_req <= 0;
-//         arbiter_dst_addr <= 0;
-//     end
-//     else begin
-//         if(valid_dfx_data) begin
-//             write_req <= 1;
-//             if(write_gnt) begin
-//                 write_req <= 0;
-//                 rd_output_port_0 <= 1;
-//                 arbiter_dst_addr <= dst_addr_arbiter_recv;
-//             end
-//             else begin
-//                 write_req <= 0;
-//                 rd_output_port_0 <= 0;
-//                 arbiter_dst_addr <= dst_addr_arbiter_recv;
-//             end
-//         end
-//         else begin
-//             write_req <= 0;
-//             rd_output_port_0 <= 0;
-//             arbiter_dst_addr <= 0;
-//         end
-//     end
-// end
+            end
+            READ_ARBITER_DELAY: begin
+    
+            end
+            ENCAP_PKT: begin
+                if(pkt_number == NUMBER_PACKET - 1) begin
+                    pkt_number <= 0;
+                    pkt_TTL <= pkt_TTL - 1;
+                end
+                else begin
+                    pkt_number <= pkt_number + 1;
+                end
+            end
+        endcase
+    end
+end
 endmodule
