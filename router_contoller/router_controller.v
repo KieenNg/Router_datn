@@ -34,7 +34,7 @@ module router_controller
     input               empty_input_port_1,
     output reg          rd_input_port_1,
 /////////////output port 0////////////
-    input                           empty_output_port_0
+    input                           empty_output_port_0,
     input                           done_encap_pkt,
     input [ADDR_WIDTH - 1:0]        dst_addr_arbiter_recv,
     input [8:0]                     header_pkt_recv,
@@ -99,6 +99,7 @@ always @(*) begin
         default: next_state = IDLE;
     endcase
 end
+
 always @(*) begin
     case (current_state)
         IDLE: begin

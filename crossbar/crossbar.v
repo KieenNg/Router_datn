@@ -7,8 +7,8 @@ module crossbar
     input [AURORA_DATA_WIDTH - 1:0]        data_in_port_1,
     input [AURORA_DATA_WIDTH - 1:0]        data_port_1_after,
     output [AURORA_DATA_WIDTH - 1:0]       data_port_1_before,
-    output [AURORA_DATA_WIDTH - 1:0]       data_out_port_0,
-    output [AURORA_DATA_WIDTH - 1:0]       data_out_port_1
+    output reg [AURORA_DATA_WIDTH - 1:0]       data_out_port_0,
+    output reg [AURORA_DATA_WIDTH - 1:0]       data_out_port_1
 );
 assign data_port_1_before = data_in_port_1;
 always @(*) begin

@@ -118,7 +118,6 @@ module tb_decap_packet;
         #(CLK_PERIOD);
         data_in_dfx = 64'h44444444_55555555;
         #(CLK_PERIOD);
-        empty_output_queue_0 = 1;
         #(CLK_PERIOD*10);        
         // Finish simulation
 
