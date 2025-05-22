@@ -63,6 +63,9 @@ module tb_input_o_arbiter;
         router_dst_addr = 10'h4;
         #(CLK_PERIOD*2);
         router_start_req = 0;
+
+        #(CLK_PERIOD*200);
+        $finish;
     end 
     
 endmodule
