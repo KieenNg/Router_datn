@@ -7,11 +7,12 @@ module decap_packet
 )(
     input                                   clk,
     input                                   rst_n,
-    input [AURORA_DATA_WIDTH - 1:0]         data_in_dfx,
-    input                                   rd_output_port_0,
+    input [AURORA_DATA_WIDTH - 1:0]         data_recv,
+    input                                   start_decap_pkt,
+    output reg [8:0] header_pkt_recv,
     output reg [DATA_DFX_WIDTH - 1:0]       data_dfx_recv,
     output reg                              valid_dfx_data,
-    output reg                              done_decap_pkt
+    output reg                              decap_done
 );
 reg [DATA_DFX_WIDTH - 1:0] data_dfx_recv_reg;
 reg [$clog2(DATA_DFX_WIDTH)-1:0] frame_cnt;
@@ -50,21 +51,5 @@ always @(posedge clk or negedge rst_n) begin
         end
     end
 end
-// end else begin
-//         if (empty_output_queue_0) begin
-//             data_dfx_recv <= 1034'b0;
-//             valid_dfx_data <= 0;
-//             index <= 0;
-//         end else begin
-//             if(index + 1 < (DATA_DFX_WIDTH/55)) begin
-//                 data_dfx_recv[(index *55-1) -: 55] <= data_in_dfx[63:9];
-//                 index <= index + 1;
-//                 valid_dfx_data <= 1;
-//             end else begin
-//                 data_dfx_recv[1033:990] <= data_in_dfx [52:9];
-//                 index <= index + 1;
-//                 valid_dfx_data <= 1;
-//             end
-//         end
-//     end
+
 endmodule
