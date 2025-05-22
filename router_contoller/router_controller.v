@@ -53,8 +53,10 @@ reg [3:0] next_state;
 parameter IDLE = 4'b0000;
 parameter READ_ARBITER = 4'b0001;
 parameter READ_ARBITER_DELAY = 4'b0010;
-parameter ENCAP_PKT = 4'b0011;
-parameter READ_INPUT_0 = 4'b0100;
+parameter START_ENCAP_PKT = 4'b0011;
+parameter ENCAP_PKT = 4'b0100;
+parameter READ_INPUT_0 = 4'b0101;
+parameter READ_OUTPUT_0 = 4'b0110;
 always @(posedge clk or negedge rst_n) begin
     if(!rst_n) begin
         current_state <= IDLE;
@@ -78,19 +80,26 @@ always @(*) begin
             next_state = arbiter_read_gnt ? READ_ARBITER_DELAY : READ_ARBITER;
         end
         READ_ARBITER_DELAY: begin
+            next_state = START_ENCAP_PKT;
+        end
+        START_ENCAP_PKT: begin
             next_state = ENCAP_PKT;
         end
         ENCAP_PKT: begin
-            if(encap_done) begin
-                next_state = READ_INPUT_0;
-            end
-            else begin
-                next_state = ENCAP_PKT;
-            end
+            next_state = (empty_input_port_0 == 0) ? READ_INPUT_0 : ENCAP_PKT;
         end
         READ_INPUT_0: begin
+            // if(empty_input_port_0 == 0) begin
+            //     next_state = READ_INPUT_0;
+            // end
+            // else begin
+            //     next_state = READ_OUTPUT_0;
+            // end
+            next_state = READ_OUTPUT_0;
+        end
+        READ_OUTPUT_0: begin
             if(empty_input_port_0 == 0) begin
-                next_state = READ_INPUT_0;
+                next_state = READ_OUTPUT_0;
             end
             else begin
                 next_state = IDLE;
@@ -99,7 +108,6 @@ always @(*) begin
         default: next_state = IDLE;
     endcase
 end
-
 always @(*) begin
     case (current_state)
         IDLE: begin
@@ -116,7 +124,7 @@ always @(*) begin
             //input port 1
             rd_input_port_1 = 0;
             //output port 0
-            rd_input_port_0 = 0;
+            rd_output_port_0 = 0;
             we_output_port_0 = 0;
             start_decap_pkt = 0;
             //output port 1
@@ -139,7 +147,7 @@ always @(*) begin
             //input port 1
             rd_input_port_1 = 0;
             //output port 0
-            rd_input_port_0 = 0;
+            rd_output_port_0 = 0;
             we_output_port_0 = 0;
             start_decap_pkt = 0;
             //output port 1
@@ -162,7 +170,30 @@ always @(*) begin
             //input port 1
             rd_input_port_1 = 0;
             //output port 0
-            rd_input_port_0 = 0;
+            rd_output_port_0 = 0;
+            we_output_port_0 = 0;
+            start_decap_pkt = 0;
+            //output port 1
+            we_output_port_1 = 0;
+            //crossbar
+            data_port1_after = 64'h0;
+            control_crossbar = 2'b00;            
+        end
+        START_ENCAP_PKT: begin
+            router_done = 0;
+            arbiter_src_addr = router_scr_addr;
+            arbiter_dst_addr = 10'h0;
+            arbiter_read_req = 0;
+            arbiter_write_req = 0;
+            //input port 0
+            start_encap_pkt = 1;
+            router_dst_addr_send = router_dst_addr;
+            header_pkt_send = 9'h0;
+            rd_input_port_0 = 1;
+            //input port 1
+            rd_input_port_1 = 0;
+            //output port 0
+            rd_output_port_0 = 0;
             we_output_port_0 = 0;
             start_decap_pkt = 0;
             //output port 1
@@ -178,49 +209,99 @@ always @(*) begin
             arbiter_read_req = 0;
             arbiter_write_req = 0;
             //input port 0
-            start_encap_pkt = 1;
+            start_encap_pkt = 0;
             router_dst_addr_send = router_dst_addr;
             header_pkt_send = {pkt_TTL, pkt_number, pkt_src_router};
-            rd_input_port_0 = 1;
+            rd_input_port_0 = 0;
             //input port 1
             rd_input_port_1 = 0;
             //output port 0
-            rd_input_port_0 = 0;
+            rd_output_port_0 = 0;
             we_output_port_0 = 0;
             start_decap_pkt = 0;
             //output port 1
             we_output_port_1 = 0;
             //crossbar
-            data_port1_after = data_port1_before;
+            data_port1_after = 64'h0;
+            control_crossbar = 2'b00;            
+        end
+        READ_INPUT_0: begin
+            router_done = 0;
+            arbiter_src_addr = router_scr_addr;
+            arbiter_dst_addr = 10'h0;
+            arbiter_read_req = 0;
+            arbiter_write_req = 0;
+            //input port 0
+            start_encap_pkt = 0;
+            router_dst_addr_send = router_dst_addr;
+            header_pkt_send = 9'h0;
+            rd_input_port_0 = 1;
+            //input port 1
+            rd_input_port_1 = 0;
+            //output port 0
+            rd_output_port_0 = 0;
+            we_output_port_0 = 0;
+            start_decap_pkt = 0;
+            //output port 1
+            we_output_port_1 = 0;
+            //crossbar
+            data_port1_after = 64'h0;
+            control_crossbar = 2'b01;            
+        end
+        READ_OUTPUT_0: begin
+            router_done = 0;
+            arbiter_src_addr = router_scr_addr;
+            arbiter_dst_addr = 10'h0;
+            arbiter_read_req = 0;
+            arbiter_write_req = 0;
+            //input port 0
+            start_encap_pkt = 0;
+            router_dst_addr_send = router_dst_addr;
+            header_pkt_send = 9'h0;
+            rd_input_port_0 = 1;
+            //input port 1
+            rd_input_port_1 = 0;
+            //output port 0
+            rd_output_port_0 = 0;
+            we_output_port_0 = 0;
+            start_decap_pkt = 0;
+            //output port 1
+            we_output_port_1 = 1;
+            //crossbar
+            data_port1_after = 64'h0;
             control_crossbar = 2'b01;            
         end
     endcase
 end
+
 always @(posedge clk or negedge rst_n) begin
     if(!rst_n) begin
         pkt_number <= 0;
-        pkt_TTL <= 2'b10;
-        pkt_src_router <= 2'b00;
     end
     else begin
         case (current_state)
             IDLE: begin
-
+                pkt_number <= 0;
             end
             READ_ARBITER: begin
 
             end
             READ_ARBITER_DELAY: begin
-    
+            end
+            START_ENCAP_PKT: begin
+                pkt_number <= 0;
             end
             ENCAP_PKT: begin
+                pkt_number <= 0;
                 if(pkt_number == NUMBER_PACKET - 1) begin
                     pkt_number <= 0;
-                    pkt_TTL <= pkt_TTL - 1;
                 end
                 else begin
                     pkt_number <= pkt_number + 1;
                 end
+            end
+            READ_INPUT_0: begin
+                pkt_number <= 0;
             end
         endcase
     end
