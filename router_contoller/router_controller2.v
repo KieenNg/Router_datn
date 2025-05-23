@@ -4,7 +4,7 @@ module router_controller
     parameter ADDR_WIDTH = 10,
     parameter NUMBER_PACKET = 19,
     parameter RECOGNIZE_ROUTER_WIDTH = 2
-)(
+)( 
     input clk,
     input rst_n,
     ////////////total controller////////////
