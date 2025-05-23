@@ -1,0 +1,33 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../../../Router_datn/router_contoller/router_controller.v" \
+"../../../../arbiter_input_0.gen/sources_1/ip/blk_mem_gen_0/sim/blk_mem_gen_0.v" \
+"../../../../../../Router_datn/arbiter/arbiter_wrapper.v" \
+
+sv xil_defaultlib  \
+"../../../../../../Router_datn/arbiter/arbiter.sv" \
+
+verilog xil_defaultlib  \
+"../../../../../../Router_datn/arbiter/arbiter_bram.v" \
+"../../../../../../Router_datn/input_port_0/encap_packet.v" \
+"../../../../../../Router_datn/input_port_0/merge_addr_data.v" \
+"../../../../../../Router_datn/input_port_0/encap_packet_top.v" \
+"../../../../../../Router_datn/crossbar/crossbar.v" \
+"../../../../arbiter_input_0.ip_user_files/bd/input_0_arbiter/ip/input_0_arbiter_router_controller_0_0/sim/input_0_arbiter_router_controller_0_0.v" \
+"../../../../arbiter_input_0.ip_user_files/bd/input_0_arbiter/ip/input_0_arbiter_arbiter_bram_0_0/sim/input_0_arbiter_arbiter_bram_0_0.v" \
+"../../../../arbiter_input_0.ip_user_files/bd/input_0_arbiter/ip/input_0_arbiter_fifo_generator_0_0/sim/input_0_arbiter_fifo_generator_0_0.v" \
+"../../../../arbiter_input_0.ip_user_files/bd/input_0_arbiter/ip/input_0_arbiter_encap_packet_top_0_0/sim/input_0_arbiter_encap_packet_top_0_0.v" \
+"../../../../arbiter_input_0.ip_user_files/bd/input_0_arbiter/ip/input_0_arbiter_util_vector_logic_0_0/sim/input_0_arbiter_util_vector_logic_0_0.v" \
+"../../../../arbiter_input_0.ip_user_files/bd/input_0_arbiter/ip/input_0_arbiter_fifo_in_port_0_0/sim/input_0_arbiter_fifo_in_port_0_0.v" \
+"../../../../arbiter_input_0.ip_user_files/bd/input_0_arbiter/ip/input_0_arbiter_crossbar_0_0/sim/input_0_arbiter_crossbar_0_0.v" \
+"../../../../arbiter_input_0.ip_user_files/bd/input_0_arbiter/ip/input_0_arbiter_fifo_in_port_0_1/sim/input_0_arbiter_fifo_in_port_0_1.v" \
+"../../../../arbiter_input_0.ip_user_files/bd/input_0_arbiter/ip/input_0_arbiter_fifo_out_port_1_0/sim/input_0_arbiter_fifo_out_port_1_0.v" \
+"../../../../arbiter_input_0.ip_user_files/bd/input_0_arbiter/sim/input_0_arbiter.v" \
+"../../../../arbiter_input_0.gen/sources_1/bd/input_0_arbiter/hdl/input_0_arbiter_wrapper.v" \
+"../../../../../../Router_datn/router_contoller/tb_input_o_arbiter.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

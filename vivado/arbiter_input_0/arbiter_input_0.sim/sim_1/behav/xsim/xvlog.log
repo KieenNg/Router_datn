@@ -1,0 +1,40 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/socone/Documents/DATN/code/Router_datn/router_contoller/router_controller.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module router_controller
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/socone/Documents/DATN/code/router_vivado/arbiter_input_0/arbiter_input_0.gen/sources_1/ip/blk_mem_gen_0/sim/blk_mem_gen_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module blk_mem_gen_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/socone/Documents/DATN/code/Router_datn/arbiter/arbiter_wrapper.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module arbiter_wrapper
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/socone/Documents/DATN/code/Router_datn/arbiter/arbiter_bram.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module arbiter_bram
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/socone/Documents/DATN/code/Router_datn/input_port_0/encap_packet.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module encap_packet
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/socone/Documents/DATN/code/Router_datn/input_port_0/merge_addr_data.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module merge_addr_data
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/socone/Documents/DATN/code/Router_datn/input_port_0/encap_packet_top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module encap_packet_top
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/socone/Documents/DATN/code/Router_datn/crossbar/crossbar.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module crossbar
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/socone/Documents/DATN/code/router_vivado/arbiter_input_0/arbiter_input_0.ip_user_files/bd/input_0_arbiter/ip/input_0_arbiter_router_controller_0_0/sim/input_0_arbiter_router_controller_0_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module input_0_arbiter_router_controller_0_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/socone/Documents/DATN/code/router_vivado/arbiter_input_0/arbiter_input_0.ip_user_files/bd/input_0_arbiter/ip/input_0_arbiter_arbiter_bram_0_0/sim/input_0_arbiter_arbiter_bram_0_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module input_0_arbiter_arbiter_bram_0_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/socone/Documents/DATN/code/router_vivado/arbiter_input_0/arbiter_input_0.ip_user_files/bd/input_0_arbiter/ip/input_0_arbiter_fifo_generator_0_0/sim/input_0_arbiter_fifo_generator_0_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module input_0_arbiter_fifo_generator_0_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/socone/Documents/DATN/code/router_vivado/arbiter_input_0/arbiter_input_0.ip_user_files/bd/input_0_arbiter/ip/input_0_arbiter_encap_packet_top_0_0/sim/input_0_arbiter_encap_packet_top_0_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module input_0_arbiter_encap_packet_top_0_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/socone/Documents/DATN/code/router_vivado/arbiter_input_0/arbiter_input_0.ip_user_files/bd/input_0_arbiter/ip/input_0_arbiter_util_vector_logic_0_0/sim/input_0_arbiter_util_vector_logic_0_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module input_0_arbiter_util_vector_logic_0_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/socone/Documents/DATN/code/router_vivado/arbiter_input_0/arbiter_input_0.ip_user_files/bd/input_0_arbiter/ip/input_0_arbiter_fifo_in_port_0_0/sim/input_0_arbiter_fifo_in_port_0_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module input_0_arbiter_fifo_in_port_0_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/socone/Documents/DATN/code/router_vivado/arbiter_input_0/arbiter_input_0.ip_user_files/bd/input_0_arbiter/ip/input_0_arbiter_crossbar_0_0/sim/input_0_arbiter_crossbar_0_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module input_0_arbiter_crossbar_0_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/socone/Documents/DATN/code/router_vivado/arbiter_input_0/arbiter_input_0.ip_user_files/bd/input_0_arbiter/ip/input_0_arbiter_fifo_in_port_0_1/sim/input_0_arbiter_fifo_in_port_0_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module input_0_arbiter_fifo_in_port_0_1
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/socone/Documents/DATN/code/router_vivado/arbiter_input_0/arbiter_input_0.ip_user_files/bd/input_0_arbiter/ip/input_0_arbiter_fifo_out_port_1_0/sim/input_0_arbiter_fifo_out_port_1_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module input_0_arbiter_fifo_out_port_1_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/socone/Documents/DATN/code/router_vivado/arbiter_input_0/arbiter_input_0.ip_user_files/bd/input_0_arbiter/sim/input_0_arbiter.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module input_0_arbiter
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/socone/Documents/DATN/code/router_vivado/arbiter_input_0/arbiter_input_0.gen/sources_1/bd/input_0_arbiter/hdl/input_0_arbiter_wrapper.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module input_0_arbiter_wrapper
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/socone/Documents/DATN/code/Router_datn/router_contoller/tb_input_o_arbiter.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_input_o_arbiter

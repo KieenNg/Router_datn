@@ -1,0 +1,704 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x543918EE4E1D98A5",
+      "device": "xcu250-figd2104-2L-e",
+      "gen_directory": "../../../../arbiter_input_0.gen/sources_1/bd/input_0_arbiter",
+      "name": "input_0_arbiter",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2024.1",
+      "validated": "true"
+    },
+    "design_tree": {
+      "router_controller_0": "",
+      "arbiter_bram_0": "",
+      "fifo_in_port_0": "",
+      "encap_packet_top_0": "",
+      "util_vector_logic_0": "",
+      "fifo_out_port_1": "",
+      "crossbar_0": "",
+      "fifo_in_port_1": "",
+      "fifo_out_port_0": ""
+    },
+    "ports": {
+      "clk": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "input_0_arbiter_clk",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "100000000",
+            "value_src": "default"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          }
+        }
+      },
+      "rst_n": {
+        "type": "rst",
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_LOW",
+            "value_src": "default"
+          }
+        }
+      },
+      "router_start_req": {
+        "direction": "I"
+      },
+      "router_scr_addr": {
+        "direction": "I",
+        "left": "9",
+        "right": "0"
+      },
+      "router_dst_addr": {
+        "direction": "I",
+        "left": "9",
+        "right": "0"
+      },
+      "aurora_rx_tdata": {
+        "direction": "I",
+        "left": "63",
+        "right": "0"
+      },
+      "aurora_rx_tvalid": {
+        "direction": "I"
+      }
+    },
+    "components": {
+      "router_controller_0": {
+        "vlnv": "xilinx.com:module_ref:router_controller:1.0",
+        "ip_revision": "1",
+        "xci_name": "input_0_arbiter_router_controller_0_0",
+        "xci_path": "ip/input_0_arbiter_router_controller_0_0/input_0_arbiter_router_controller_0_0.xci",
+        "inst_hier_path": "router_controller_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "router_controller",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "input_0_arbiter_clk",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "rst_n": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          },
+          "router_start_req": {
+            "direction": "I"
+          },
+          "router_scr_addr": {
+            "direction": "I",
+            "left": "9",
+            "right": "0"
+          },
+          "router_dst_addr": {
+            "direction": "I",
+            "left": "9",
+            "right": "0"
+          },
+          "router_done": {
+            "direction": "O"
+          },
+          "arbiter_read_gnt": {
+            "direction": "I"
+          },
+          "arbiter_write_gnt": {
+            "direction": "I"
+          },
+          "arbiter_read_req": {
+            "direction": "O"
+          },
+          "arbiter_write_req": {
+            "direction": "O"
+          },
+          "arbiter_src_addr": {
+            "direction": "O",
+            "left": "9",
+            "right": "0"
+          },
+          "arbiter_dst_addr": {
+            "direction": "O",
+            "left": "9",
+            "right": "0"
+          },
+          "data_port1_before": {
+            "direction": "I",
+            "left": "63",
+            "right": "0"
+          },
+          "data_port1_after": {
+            "direction": "O",
+            "left": "63",
+            "right": "0"
+          },
+          "control_crossbar": {
+            "direction": "O",
+            "left": "1",
+            "right": "0"
+          },
+          "empty_input_port_0": {
+            "direction": "I"
+          },
+          "encap_done": {
+            "direction": "I"
+          },
+          "start_encap_pkt": {
+            "direction": "O"
+          },
+          "router_dst_addr_send": {
+            "direction": "O",
+            "left": "9",
+            "right": "0"
+          },
+          "header_pkt_send": {
+            "direction": "O",
+            "left": "8",
+            "right": "0"
+          },
+          "rd_input_port_0": {
+            "direction": "O"
+          },
+          "empty_input_port_1": {
+            "direction": "I"
+          },
+          "rd_input_port_1": {
+            "direction": "O"
+          },
+          "empty_output_port_0": {
+            "direction": "I"
+          },
+          "decap_done": {
+            "direction": "I"
+          },
+          "dst_addr_arbiter_recv": {
+            "direction": "I",
+            "left": "9",
+            "right": "0"
+          },
+          "header_pkt_recv": {
+            "direction": "I",
+            "left": "8",
+            "right": "0"
+          },
+          "start_decap_pkt": {
+            "direction": "O"
+          },
+          "rd_output_port_0": {
+            "direction": "O"
+          },
+          "we_output_port_0": {
+            "direction": "O"
+          },
+          "we_output_port_1": {
+            "direction": "O"
+          }
+        }
+      },
+      "arbiter_bram_0": {
+        "vlnv": "xilinx.com:module_ref:arbiter_bram:1.0",
+        "ip_revision": "1",
+        "xci_name": "input_0_arbiter_arbiter_bram_0_0",
+        "xci_path": "ip/input_0_arbiter_arbiter_bram_0_0/input_0_arbiter_arbiter_bram_0_0.xci",
+        "inst_hier_path": "arbiter_bram_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "arbiter_bram",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "input_0_arbiter_clk",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "rst_n": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          },
+          "src_addr": {
+            "direction": "I",
+            "left": "9",
+            "right": "0"
+          },
+          "data_arbiter_send": {
+            "direction": "O",
+            "left": "1023",
+            "right": "0"
+          },
+          "read_req": {
+            "direction": "I"
+          },
+          "read_gnt": {
+            "direction": "O"
+          },
+          "dst_addr": {
+            "direction": "I",
+            "left": "9",
+            "right": "0"
+          },
+          "data_arbiter_recv": {
+            "direction": "I",
+            "left": "1023",
+            "right": "0"
+          },
+          "write_req": {
+            "direction": "I"
+          },
+          "write_gnt": {
+            "direction": "O"
+          }
+        }
+      },
+      "fifo_in_port_0": {
+        "vlnv": "xilinx.com:ip:fifo_generator:13.2",
+        "ip_revision": "10",
+        "xci_name": "input_0_arbiter_fifo_generator_0_0",
+        "xci_path": "ip/input_0_arbiter_fifo_generator_0_0/input_0_arbiter_fifo_generator_0_0.xci",
+        "inst_hier_path": "fifo_in_port_0",
+        "parameters": {
+          "Input_Data_Width": {
+            "value": "64"
+          }
+        }
+      },
+      "encap_packet_top_0": {
+        "vlnv": "xilinx.com:module_ref:encap_packet_top:1.0",
+        "ip_revision": "1",
+        "xci_name": "input_0_arbiter_encap_packet_top_0_0",
+        "xci_path": "ip/input_0_arbiter_encap_packet_top_0_0/input_0_arbiter_encap_packet_top_0_0.xci",
+        "inst_hier_path": "encap_packet_top_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "encap_packet_top",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "input_0_arbiter_clk",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "rst_n": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          },
+          "data_arbiter_send": {
+            "direction": "I",
+            "left": "1023",
+            "right": "0"
+          },
+          "router_dst_addr_send": {
+            "direction": "I",
+            "left": "9",
+            "right": "0"
+          },
+          "header_pkt_send": {
+            "direction": "I",
+            "left": "8",
+            "right": "0"
+          },
+          "start_encap_pkt": {
+            "direction": "I"
+          },
+          "data_send": {
+            "direction": "O",
+            "left": "63",
+            "right": "0"
+          },
+          "data_encap_valid": {
+            "direction": "O"
+          },
+          "encap_done": {
+            "direction": "O"
+          }
+        }
+      },
+      "util_vector_logic_0": {
+        "vlnv": "xilinx.com:ip:util_vector_logic:2.0",
+        "ip_revision": "4",
+        "xci_name": "input_0_arbiter_util_vector_logic_0_0",
+        "xci_path": "ip/input_0_arbiter_util_vector_logic_0_0/input_0_arbiter_util_vector_logic_0_0.xci",
+        "inst_hier_path": "util_vector_logic_0",
+        "parameters": {
+          "C_OPERATION": {
+            "value": "not"
+          },
+          "C_SIZE": {
+            "value": "1"
+          }
+        }
+      },
+      "fifo_out_port_1": {
+        "vlnv": "xilinx.com:ip:fifo_generator:13.2",
+        "ip_revision": "10",
+        "xci_name": "input_0_arbiter_fifo_in_port_0_0",
+        "xci_path": "ip/input_0_arbiter_fifo_in_port_0_0/input_0_arbiter_fifo_in_port_0_0.xci",
+        "inst_hier_path": "fifo_out_port_1",
+        "parameters": {
+          "Input_Data_Width": {
+            "value": "64"
+          }
+        }
+      },
+      "crossbar_0": {
+        "vlnv": "xilinx.com:module_ref:crossbar:1.0",
+        "ip_revision": "1",
+        "xci_name": "input_0_arbiter_crossbar_0_0",
+        "xci_path": "ip/input_0_arbiter_crossbar_0_0/input_0_arbiter_crossbar_0_0.xci",
+        "inst_hier_path": "crossbar_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "crossbar",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "control_crossbar": {
+            "direction": "I",
+            "left": "1",
+            "right": "0"
+          },
+          "data_in_port_0": {
+            "direction": "I",
+            "left": "63",
+            "right": "0"
+          },
+          "data_in_port_1": {
+            "direction": "I",
+            "left": "63",
+            "right": "0"
+          },
+          "data_port_1_after": {
+            "direction": "I",
+            "left": "63",
+            "right": "0"
+          },
+          "data_port_1_before": {
+            "direction": "O",
+            "left": "63",
+            "right": "0"
+          },
+          "data_out_port_0": {
+            "direction": "O",
+            "left": "63",
+            "right": "0"
+          },
+          "data_out_port_1": {
+            "direction": "O",
+            "left": "63",
+            "right": "0"
+          }
+        }
+      },
+      "fifo_in_port_1": {
+        "vlnv": "xilinx.com:ip:fifo_generator:13.2",
+        "ip_revision": "10",
+        "xci_name": "input_0_arbiter_fifo_in_port_0_1",
+        "xci_path": "ip/input_0_arbiter_fifo_in_port_0_1/input_0_arbiter_fifo_in_port_0_1.xci",
+        "inst_hier_path": "fifo_in_port_1",
+        "parameters": {
+          "Input_Data_Width": {
+            "value": "64"
+          }
+        }
+      },
+      "fifo_out_port_0": {
+        "vlnv": "xilinx.com:ip:fifo_generator:13.2",
+        "ip_revision": "10",
+        "xci_name": "input_0_arbiter_fifo_out_port_1_0",
+        "xci_path": "ip/input_0_arbiter_fifo_out_port_1_0/input_0_arbiter_fifo_out_port_1_0.xci",
+        "inst_hier_path": "fifo_out_port_0",
+        "parameters": {
+          "Input_Data_Width": {
+            "value": "64"
+          }
+        }
+      }
+    },
+    "nets": {
+      "arbiter_bram_0_data_arbiter_send": {
+        "ports": [
+          "arbiter_bram_0/data_arbiter_send",
+          "encap_packet_top_0/data_arbiter_send"
+        ]
+      },
+      "arbiter_bram_0_read_gnt": {
+        "ports": [
+          "arbiter_bram_0/read_gnt",
+          "router_controller_0/arbiter_read_gnt"
+        ]
+      },
+      "arbiter_bram_0_write_gnt": {
+        "ports": [
+          "arbiter_bram_0/write_gnt",
+          "router_controller_0/arbiter_write_gnt"
+        ]
+      },
+      "clk_0_1": {
+        "ports": [
+          "clk",
+          "arbiter_bram_0/clk",
+          "fifo_in_port_0/clk",
+          "encap_packet_top_0/clk",
+          "router_controller_0/clk",
+          "fifo_out_port_1/clk",
+          "fifo_in_port_1/clk",
+          "fifo_out_port_0/clk"
+        ]
+      },
+      "crossbar_0_data_out_port_0": {
+        "ports": [
+          "crossbar_0/data_out_port_0",
+          "fifo_out_port_0/din"
+        ]
+      },
+      "crossbar_0_data_out_port_1": {
+        "ports": [
+          "crossbar_0/data_out_port_1",
+          "fifo_out_port_1/din"
+        ]
+      },
+      "crossbar_0_data_port_1_before": {
+        "ports": [
+          "crossbar_0/data_port_1_before",
+          "router_controller_0/data_port1_before"
+        ]
+      },
+      "din_0_1": {
+        "ports": [
+          "aurora_rx_tdata",
+          "fifo_in_port_1/din"
+        ]
+      },
+      "encap_packet_top_0_data_encap_valid": {
+        "ports": [
+          "encap_packet_top_0/data_encap_valid",
+          "fifo_in_port_0/wr_en"
+        ]
+      },
+      "encap_packet_top_0_data_send": {
+        "ports": [
+          "encap_packet_top_0/data_send",
+          "fifo_in_port_0/din"
+        ]
+      },
+      "encap_packet_top_0_encap_done": {
+        "ports": [
+          "encap_packet_top_0/encap_done",
+          "router_controller_0/encap_done"
+        ]
+      },
+      "fifo_generator_0_empty": {
+        "ports": [
+          "fifo_in_port_0/empty",
+          "router_controller_0/empty_input_port_0"
+        ]
+      },
+      "fifo_in_port_0_dout": {
+        "ports": [
+          "fifo_in_port_0/dout",
+          "crossbar_0/data_in_port_0"
+        ]
+      },
+      "fifo_in_port_1_dout": {
+        "ports": [
+          "fifo_in_port_1/dout",
+          "crossbar_0/data_in_port_1"
+        ]
+      },
+      "fifo_in_port_1_empty": {
+        "ports": [
+          "fifo_in_port_1/empty",
+          "router_controller_0/empty_input_port_1"
+        ]
+      },
+      "fifo_out_port_0_empty": {
+        "ports": [
+          "fifo_out_port_0/empty",
+          "router_controller_0/empty_output_port_0"
+        ]
+      },
+      "router_controller_0_arbiter_dst_addr": {
+        "ports": [
+          "router_controller_0/arbiter_dst_addr",
+          "arbiter_bram_0/dst_addr"
+        ]
+      },
+      "router_controller_0_arbiter_read_req": {
+        "ports": [
+          "router_controller_0/arbiter_read_req",
+          "arbiter_bram_0/read_req"
+        ]
+      },
+      "router_controller_0_arbiter_src_addr": {
+        "ports": [
+          "router_controller_0/arbiter_src_addr",
+          "arbiter_bram_0/src_addr"
+        ]
+      },
+      "router_controller_0_arbiter_write_req": {
+        "ports": [
+          "router_controller_0/arbiter_write_req",
+          "arbiter_bram_0/write_req"
+        ]
+      },
+      "router_controller_0_control_crossbar": {
+        "ports": [
+          "router_controller_0/control_crossbar",
+          "crossbar_0/control_crossbar"
+        ]
+      },
+      "router_controller_0_data_port1_after": {
+        "ports": [
+          "router_controller_0/data_port1_after",
+          "crossbar_0/data_port_1_after"
+        ]
+      },
+      "router_controller_0_header_pkt_send": {
+        "ports": [
+          "router_controller_0/header_pkt_send",
+          "encap_packet_top_0/header_pkt_send"
+        ]
+      },
+      "router_controller_0_rd_input_port_0": {
+        "ports": [
+          "router_controller_0/rd_input_port_0",
+          "fifo_in_port_0/rd_en"
+        ]
+      },
+      "router_controller_0_rd_input_port_1": {
+        "ports": [
+          "router_controller_0/rd_input_port_1",
+          "fifo_in_port_1/rd_en"
+        ]
+      },
+      "router_controller_0_rd_output_port_0": {
+        "ports": [
+          "router_controller_0/rd_output_port_0",
+          "fifo_out_port_0/rd_en"
+        ]
+      },
+      "router_controller_0_router_dst_addr_send": {
+        "ports": [
+          "router_controller_0/router_dst_addr_send",
+          "encap_packet_top_0/router_dst_addr_send"
+        ]
+      },
+      "router_controller_0_start_encap_pkt": {
+        "ports": [
+          "router_controller_0/start_encap_pkt",
+          "encap_packet_top_0/start_encap_pkt"
+        ]
+      },
+      "router_controller_0_we_output_port_0": {
+        "ports": [
+          "router_controller_0/we_output_port_0",
+          "fifo_out_port_0/wr_en"
+        ]
+      },
+      "router_controller_0_we_output_port_1": {
+        "ports": [
+          "router_controller_0/we_output_port_1",
+          "fifo_out_port_1/wr_en"
+        ]
+      },
+      "router_dst_addr_0_1": {
+        "ports": [
+          "router_dst_addr",
+          "router_controller_0/router_dst_addr"
+        ]
+      },
+      "router_scr_addr_0_1": {
+        "ports": [
+          "router_scr_addr",
+          "router_controller_0/router_scr_addr"
+        ]
+      },
+      "router_start_req_0_1": {
+        "ports": [
+          "router_start_req",
+          "router_controller_0/router_start_req"
+        ]
+      },
+      "rst_n_0_1": {
+        "ports": [
+          "rst_n",
+          "arbiter_bram_0/rst_n",
+          "util_vector_logic_0/Op1",
+          "encap_packet_top_0/rst_n",
+          "router_controller_0/rst_n"
+        ]
+      },
+      "util_vector_logic_0_Res": {
+        "ports": [
+          "util_vector_logic_0/Res",
+          "fifo_in_port_0/srst",
+          "fifo_out_port_1/srst",
+          "fifo_in_port_1/srst",
+          "fifo_out_port_0/srst"
+        ]
+      },
+      "wr_en_0_1": {
+        "ports": [
+          "aurora_rx_tvalid",
+          "fifo_in_port_1/wr_en"
+        ]
+      }
+    }
+  }
+}

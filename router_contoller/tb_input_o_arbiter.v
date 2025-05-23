@@ -26,7 +26,12 @@ module tb_input_o_arbiter;
     reg [9:0] router_scr_addr;
     reg router_start_req;
     reg rst_n;
+    reg [63:0] aurora_rx_tdata;
+    reg aurora_rx_tvalid;
+    
     input_0_arbiter_wrapper input_0_arbiter_wrapper_i(
+        .aurora_rx_tdata(aurora_rx_tdata),
+        .aurora_rx_tvalid(aurora_rx_tvalid),
         .clk(clk),
         .router_dst_addr(router_dst_addr),
         .router_scr_addr(router_scr_addr),
@@ -43,26 +48,36 @@ module tb_input_o_arbiter;
         #(CLK_PERIOD*2);
         rst_n = 1;
     end
-    initial begin 
-        router_start_req = 0;
-        #(CLK_PERIOD*4);
-        router_start_req = 1;
-        router_scr_addr = 10'h1;
-        router_dst_addr = 10'h5;
-        #(CLK_PERIOD*2);  
-        router_start_req = 0;
-        #(CLK_PERIOD*30);
-        router_start_req = 1;
-        router_scr_addr = 10'h2;
-        router_dst_addr = 10'h6;
-        #(CLK_PERIOD*2);
-        router_start_req = 0;
-        #(CLK_PERIOD*30);
-        router_start_req = 1;
-        router_scr_addr = 10'h0;
-        router_dst_addr = 10'h4;
-        #(CLK_PERIOD*2);
-        router_start_req = 0;
+     initial begin 
+         router_start_req = 0;
+//         #(CLK_PERIOD*4);
+//         router_start_req = 1;
+//         router_scr_addr = 10'h1;
+//         router_dst_addr = 10'h5;
+//         #(CLK_PERIOD*2);  
+//         router_start_req = 0;
+//         #(CLK_PERIOD*30);
+//         router_start_req = 1;
+//         router_scr_addr = 10'h2;
+//         router_dst_addr = 10'h6;
+//         #(CLK_PERIOD*2);
+//         router_start_req = 0;
+//         #(CLK_PERIOD*30);
+//         router_start_req = 1;
+//         router_scr_addr = 10'h0;
+//         router_dst_addr = 10'h4;
+//         #(CLK_PERIOD*2);
+//         router_start_req = 0;
+
+//         #(CLK_PERIOD*200);
+//         $finish;
+     end 
+        initial begin 
+            aurora_rx_tvalid = 0;
+            aurora_rx_tdata = 64'h0;
+            #(CLK_PERIOD*4);
+            aurora_rx_tvalid = 1;
+            aurora_rx_tdata = 64'hbbbc444444400b80;
 
         #(CLK_PERIOD*200);
         $finish;

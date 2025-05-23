@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_input_o_arbiter_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_input_o_arbiter" />
+            <top_module name="vcomponents" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="876.797 ns"></ZoomStartTime>
+      <ZoomEndTime time="1,464.798 ns"></ZoomEndTime>
+      <Cursor1Time time="1,010.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="233"></NameColumnWidth>
+      <ValueColumnWidth column_width="160"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="93" />
+   <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/router_controller_0/clk">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/router_controller_0/rst_n">
+      <obj_property name="ElementShortName">rst_n</obj_property>
+      <obj_property name="ObjectShortName">rst_n</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/router_controller_0/router_start_req">
+      <obj_property name="ElementShortName">router_start_req</obj_property>
+      <obj_property name="ObjectShortName">router_start_req</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/router_controller_0/router_scr_addr">
+      <obj_property name="ElementShortName">router_scr_addr[9:0]</obj_property>
+      <obj_property name="ObjectShortName">router_scr_addr[9:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/router_controller_0/router_dst_addr">
+      <obj_property name="ElementShortName">router_dst_addr[9:0]</obj_property>
+      <obj_property name="ObjectShortName">router_dst_addr[9:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/router_controller_0/router_done">
+      <obj_property name="ElementShortName">router_done</obj_property>
+      <obj_property name="ObjectShortName">router_done</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/router_controller_0/arbiter_read_req">
+      <obj_property name="ElementShortName">arbiter_read_req</obj_property>
+      <obj_property name="ObjectShortName">arbiter_read_req</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/router_controller_0/arbiter_read_gnt">
+      <obj_property name="ElementShortName">arbiter_read_gnt</obj_property>
+      <obj_property name="ObjectShortName">arbiter_read_gnt</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/router_controller_0/arbiter_src_addr">
+      <obj_property name="ElementShortName">arbiter_src_addr[9:0]</obj_property>
+      <obj_property name="ObjectShortName">arbiter_src_addr[9:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/router_controller_0/arbiter_dst_addr">
+      <obj_property name="ElementShortName">arbiter_dst_addr[9:0]</obj_property>
+      <obj_property name="ObjectShortName">arbiter_dst_addr[9:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/router_controller_0/start_encap_pkt">
+      <obj_property name="ElementShortName">start_encap_pkt</obj_property>
+      <obj_property name="ObjectShortName">start_encap_pkt</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/router_controller_0/encap_done">
+      <obj_property name="ElementShortName">encap_done</obj_property>
+      <obj_property name="ObjectShortName">encap_done</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/router_controller_0/rd_input_port_0">
+      <obj_property name="ElementShortName">rd_input_port_0</obj_property>
+      <obj_property name="ObjectShortName">rd_input_port_0</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/router_controller_0/empty_input_port_0">
+      <obj_property name="ElementShortName">empty_input_port_0</obj_property>
+      <obj_property name="ObjectShortName">empty_input_port_0</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/router_controller_0/router_dst_addr_send">
+      <obj_property name="ElementShortName">router_dst_addr_send[9:0]</obj_property>
+      <obj_property name="ObjectShortName">router_dst_addr_send[9:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/router_controller_0/header_pkt_send">
+      <obj_property name="ElementShortName">header_pkt_send[8:0]</obj_property>
+      <obj_property name="ObjectShortName">header_pkt_send[8:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/router_controller_0/control_crossbar">
+      <obj_property name="ElementShortName">control_crossbar[1:0]</obj_property>
+      <obj_property name="ObjectShortName">control_crossbar[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/router_controller_0/inst/pkt_number">
+      <obj_property name="ElementShortName">pkt_number[4:0]</obj_property>
+      <obj_property name="ObjectShortName">pkt_number[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/router_controller_0/inst/current_state">
+      <obj_property name="ElementShortName">current_state[3:0]</obj_property>
+      <obj_property name="ObjectShortName">current_state[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/router_controller_0/inst/next_state">
+      <obj_property name="ElementShortName">next_state[3:0]</obj_property>
+      <obj_property name="ObjectShortName">next_state[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider121" type="divider">
+      <obj_property name="label">arbiter</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/arbiter_bram_0/inst/arbiter_wrapper_i/clk">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/arbiter_bram_0/inst/arbiter_wrapper_i/rst_n">
+      <obj_property name="ElementShortName">rst_n</obj_property>
+      <obj_property name="ObjectShortName">rst_n</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/arbiter_bram_0/inst/arbiter_wrapper_i/bram_a_addr_o">
+      <obj_property name="ElementShortName">bram_a_addr_o[9:0]</obj_property>
+      <obj_property name="ObjectShortName">bram_a_addr_o[9:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/arbiter_bram_0/inst/arbiter_wrapper_i/bram_a_dout_i">
+      <obj_property name="ElementShortName">bram_a_dout_i[1023:0]</obj_property>
+      <obj_property name="ObjectShortName">bram_a_dout_i[1023:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/arbiter_bram_0/inst/arbiter_wrapper_i/bram_a_din_o">
+      <obj_property name="ElementShortName">bram_a_din_o[1023:0]</obj_property>
+      <obj_property name="ObjectShortName">bram_a_din_o[1023:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/arbiter_bram_0/inst/arbiter_wrapper_i/bram_a_en_o">
+      <obj_property name="ElementShortName">bram_a_en_o</obj_property>
+      <obj_property name="ObjectShortName">bram_a_en_o</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/arbiter_bram_0/inst/arbiter_wrapper_i/bram_a_we_o">
+      <obj_property name="ElementShortName">bram_a_we_o</obj_property>
+      <obj_property name="ObjectShortName">bram_a_we_o</obj_property>
+   </wvobject>
+   <wvobject type="group" fp_name="group138">
+      <obj_property name="label">port_b</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="array" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/arbiter_bram_0/inst/arbiter_wrapper_i/bram_b_addr_o">
+         <obj_property name="ElementShortName">bram_b_addr_o[9:0]</obj_property>
+         <obj_property name="ObjectShortName">bram_b_addr_o[9:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/arbiter_bram_0/inst/arbiter_wrapper_i/bram_b_dout_i">
+         <obj_property name="ElementShortName">bram_b_dout_i[1023:0]</obj_property>
+         <obj_property name="ObjectShortName">bram_b_dout_i[1023:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/arbiter_bram_0/inst/arbiter_wrapper_i/bram_b_din_o">
+         <obj_property name="ElementShortName">bram_b_din_o[1023:0]</obj_property>
+         <obj_property name="ObjectShortName">bram_b_din_o[1023:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/arbiter_bram_0/inst/arbiter_wrapper_i/bram_b_en_o">
+         <obj_property name="ElementShortName">bram_b_en_o</obj_property>
+         <obj_property name="ObjectShortName">bram_b_en_o</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/arbiter_bram_0/inst/arbiter_wrapper_i/bram_b_we_o">
+         <obj_property name="ElementShortName">bram_b_we_o</obj_property>
+         <obj_property name="ObjectShortName">bram_b_we_o</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/arbiter_bram_0/inst/arbiter_wrapper_i/src_addr">
+      <obj_property name="ElementShortName">src_addr[9:0]</obj_property>
+      <obj_property name="ObjectShortName">src_addr[9:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/arbiter_bram_0/inst/arbiter_wrapper_i/read_req">
+      <obj_property name="ElementShortName">read_req</obj_property>
+      <obj_property name="ObjectShortName">read_req</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/arbiter_bram_0/inst/arbiter_wrapper_i/read_gnt">
+      <obj_property name="ElementShortName">read_gnt</obj_property>
+      <obj_property name="ObjectShortName">read_gnt</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/arbiter_bram_0/inst/arbiter_wrapper_i/data_arbiter_send">
+      <obj_property name="ElementShortName">data_arbiter_send[1023:0]</obj_property>
+      <obj_property name="ObjectShortName">data_arbiter_send[1023:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider139" type="divider">
+      <obj_property name="label">encap_pkt</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/encap_packet_top_0/clk">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/encap_packet_top_0/rst_n">
+      <obj_property name="ElementShortName">rst_n</obj_property>
+      <obj_property name="ObjectShortName">rst_n</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/encap_packet_top_0/inst/encap_packet_i/clk">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/encap_packet_top_0/inst/encap_packet_i/rst_n">
+      <obj_property name="ElementShortName">rst_n</obj_property>
+      <obj_property name="ObjectShortName">rst_n</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/encap_packet_top_0/inst/merge_addr_data_i/router_dst_addr_send">
+      <obj_property name="ElementShortName">router_dst_addr_send[9:0]</obj_property>
+      <obj_property name="ObjectShortName">router_dst_addr_send[9:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/encap_packet_top_0/inst/merge_addr_data_i/data_arbiter_send">
+      <obj_property name="ElementShortName">data_arbiter_send[1023:0]</obj_property>
+      <obj_property name="ObjectShortName">data_arbiter_send[1023:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/encap_packet_top_0/inst/encap_packet_i/data_dfx_send">
+      <obj_property name="ElementShortName">data_dfx_send[1033:0]</obj_property>
+      <obj_property name="ObjectShortName">data_dfx_send[1033:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/encap_packet_top_0/inst/encap_packet_i/header_pkt_send">
+      <obj_property name="ElementShortName">header_pkt_send[8:0]</obj_property>
+      <obj_property name="ObjectShortName">header_pkt_send[8:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/encap_packet_top_0/inst/encap_packet_i/data_dfx_send_reg">
+      <obj_property name="ElementShortName">data_dfx_send_reg[1033:0]</obj_property>
+      <obj_property name="ObjectShortName">data_dfx_send_reg[1033:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/encap_packet_top_0/inst/encap_packet_i/start_encap_pkt">
+      <obj_property name="ElementShortName">start_encap_pkt</obj_property>
+      <obj_property name="ObjectShortName">start_encap_pkt</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/encap_packet_top_0/inst/encap_packet_i/data_send">
+      <obj_property name="ElementShortName">data_send[63:0]</obj_property>
+      <obj_property name="ObjectShortName">data_send[63:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/encap_packet_top_0/inst/encap_packet_i/data_encap_valid">
+      <obj_property name="ElementShortName">data_encap_valid</obj_property>
+      <obj_property name="ObjectShortName">data_encap_valid</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/encap_packet_top_0/inst/encap_packet_i/encap_done">
+      <obj_property name="ElementShortName">encap_done</obj_property>
+      <obj_property name="ObjectShortName">encap_done</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/encap_packet_top_0/inst/encap_packet_i/current_state">
+      <obj_property name="ElementShortName">current_state[1:0]</obj_property>
+      <obj_property name="ObjectShortName">current_state[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/encap_packet_top_0/inst/encap_packet_i/next_state">
+      <obj_property name="ElementShortName">next_state[1:0]</obj_property>
+      <obj_property name="ObjectShortName">next_state[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/encap_packet_top_0/inst/encap_packet_i/index">
+      <obj_property name="ElementShortName">index[4:0]</obj_property>
+      <obj_property name="ObjectShortName">index[4:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider172" type="divider">
+      <obj_property name="label">FIFO_IN_0</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/fifo_in_port_0/clk">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/fifo_in_port_0/srst">
+      <obj_property name="ElementShortName">srst</obj_property>
+      <obj_property name="ObjectShortName">srst</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/fifo_in_port_0/din">
+      <obj_property name="ElementShortName">din[63:0]</obj_property>
+      <obj_property name="ObjectShortName">din[63:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/fifo_in_port_0/wr_en">
+      <obj_property name="ElementShortName">wr_en</obj_property>
+      <obj_property name="ObjectShortName">wr_en</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/fifo_in_port_0/rd_en">
+      <obj_property name="ElementShortName">rd_en</obj_property>
+      <obj_property name="ObjectShortName">rd_en</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/fifo_in_port_0/dout">
+      <obj_property name="ElementShortName">dout[63:0]</obj_property>
+      <obj_property name="ObjectShortName">dout[63:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/fifo_in_port_0/full">
+      <obj_property name="ElementShortName">full</obj_property>
+      <obj_property name="ObjectShortName">full</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/fifo_in_port_0/empty">
+      <obj_property name="ElementShortName">empty</obj_property>
+      <obj_property name="ObjectShortName">empty</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider323" type="divider">
+      <obj_property name="label">FIFO_OUT_1</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/fifo_out_port_1/clk">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/fifo_out_port_1/srst">
+      <obj_property name="ElementShortName">srst</obj_property>
+      <obj_property name="ObjectShortName">srst</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/fifo_out_port_1/din">
+      <obj_property name="ElementShortName">din[63:0]</obj_property>
+      <obj_property name="ObjectShortName">din[63:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/fifo_out_port_1/wr_en">
+      <obj_property name="ElementShortName">wr_en</obj_property>
+      <obj_property name="ObjectShortName">wr_en</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/fifo_out_port_1/rd_en">
+      <obj_property name="ElementShortName">rd_en</obj_property>
+      <obj_property name="ObjectShortName">rd_en</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/fifo_out_port_1/dout">
+      <obj_property name="ElementShortName">dout[63:0]</obj_property>
+      <obj_property name="ObjectShortName">dout[63:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/fifo_out_port_1/full">
+      <obj_property name="ElementShortName">full</obj_property>
+      <obj_property name="ObjectShortName">full</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/fifo_out_port_1/empty">
+      <obj_property name="ElementShortName">empty</obj_property>
+      <obj_property name="ObjectShortName">empty</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider74" type="divider">
+      <obj_property name="label">crossbar</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/crossbar_0/inst/control_crossbar">
+      <obj_property name="ElementShortName">control_crossbar[1:0]</obj_property>
+      <obj_property name="ObjectShortName">control_crossbar[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/crossbar_0/inst/data_in_port_0">
+      <obj_property name="ElementShortName">data_in_port_0[63:0]</obj_property>
+      <obj_property name="ObjectShortName">data_in_port_0[63:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/crossbar_0/inst/data_port_1_after">
+      <obj_property name="ElementShortName">data_port_1_after[63:0]</obj_property>
+      <obj_property name="ObjectShortName">data_port_1_after[63:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/crossbar_0/inst/data_port_1_before">
+      <obj_property name="ElementShortName">data_port_1_before[63:0]</obj_property>
+      <obj_property name="ObjectShortName">data_port_1_before[63:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/crossbar_0/inst/data_out_port_0">
+      <obj_property name="ElementShortName">data_out_port_0[63:0]</obj_property>
+      <obj_property name="ObjectShortName">data_out_port_0[63:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/crossbar_0/inst/data_out_port_1">
+      <obj_property name="ElementShortName">data_out_port_1[63:0]</obj_property>
+      <obj_property name="ObjectShortName">data_out_port_1[63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider244" type="divider">
+      <obj_property name="label">FIFO_IN_1</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/fifo_in_port_1/clk">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/fifo_in_port_1/srst">
+      <obj_property name="ElementShortName">srst</obj_property>
+      <obj_property name="ObjectShortName">srst</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/fifo_in_port_1/din">
+      <obj_property name="ElementShortName">din[63:0]</obj_property>
+      <obj_property name="ObjectShortName">din[63:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/fifo_in_port_1/wr_en">
+      <obj_property name="ElementShortName">wr_en</obj_property>
+      <obj_property name="ObjectShortName">wr_en</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/fifo_in_port_1/rd_en">
+      <obj_property name="ElementShortName">rd_en</obj_property>
+      <obj_property name="ObjectShortName">rd_en</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/fifo_in_port_1/dout">
+      <obj_property name="ElementShortName">dout[63:0]</obj_property>
+      <obj_property name="ObjectShortName">dout[63:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/fifo_in_port_1/full">
+      <obj_property name="ElementShortName">full</obj_property>
+      <obj_property name="ObjectShortName">full</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/fifo_in_port_1/empty">
+      <obj_property name="ElementShortName">empty</obj_property>
+      <obj_property name="ObjectShortName">empty</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider91" type="divider">
+      <obj_property name="label">FIFO_OUT_0</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/fifo_out_port_0/clk">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/fifo_out_port_0/srst">
+      <obj_property name="ElementShortName">srst</obj_property>
+      <obj_property name="ObjectShortName">srst</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/fifo_out_port_0/din">
+      <obj_property name="ElementShortName">din[63:0]</obj_property>
+      <obj_property name="ObjectShortName">din[63:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/fifo_out_port_0/wr_en">
+      <obj_property name="ElementShortName">wr_en</obj_property>
+      <obj_property name="ObjectShortName">wr_en</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/fifo_out_port_0/rd_en">
+      <obj_property name="ElementShortName">rd_en</obj_property>
+      <obj_property name="ObjectShortName">rd_en</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/fifo_out_port_0/dout">
+      <obj_property name="ElementShortName">dout[63:0]</obj_property>
+      <obj_property name="ObjectShortName">dout[63:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/fifo_out_port_0/full">
+      <obj_property name="ElementShortName">full</obj_property>
+      <obj_property name="ObjectShortName">full</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_input_o_arbiter/input_0_arbiter_wrapper_i/input_0_arbiter_i/fifo_out_port_0/empty">
+      <obj_property name="ElementShortName">empty</obj_property>
+      <obj_property name="ObjectShortName">empty</obj_property>
+   </wvobject>
+</wave_config>

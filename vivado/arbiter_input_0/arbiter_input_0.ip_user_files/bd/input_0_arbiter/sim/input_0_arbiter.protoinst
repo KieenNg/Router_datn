@@ -1,0 +1,9 @@
+{
+	"version": "1.0",
+	"modules": {
+		"input_0_arbiter": {
+			"proto_instances": {
+			}
+		}
+	}
+}

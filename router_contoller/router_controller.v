@@ -70,6 +70,7 @@ end
 reg [1:0] pkt_TTL_recv;
 reg [$clog2(NUMBER_PACKET) - 1:0] pkt_number_recv;
 reg [RECOGNIZE_ROUTER_WIDTH - 1:0] pkt_src_router_recv;
+reg [63:0] data_port1_after_next;
 always @(*) begin
     case(current_state)
         IDLE: begin
@@ -202,7 +203,7 @@ always @(*) begin
             start_encap_pkt = 1;
             router_dst_addr_send = router_dst_addr;
             header_pkt_send = 9'h0;
-            rd_input_port_0 = 1;
+            rd_input_port_0 = 0;
             //input port 1
             rd_input_port_1 = 0;
             //output port 0
@@ -304,14 +305,20 @@ always @(*) begin
             //output port 1
             //we_output_port_1 = 1;
             //crossbar
+            data_port1_after[6:0] = data_port1_before[6:0];
+            data_port1_after[63:9] = data_port1_before[63:9];            
             data_port1_after[8:7] = data_port1_before[8:7] - 1;
             if(data_port1_before[8:7] > 2'b01)begin
                 control_crossbar = 2'b11;   
                 we_output_port_0 = 1;
                 we_output_port_1 = 1;         
+            end else if(data_port1_before[8:7] == 2'b01) begin
+                control_crossbar = 2'b10;   
+                we_output_port_0 = 1;
+                we_output_port_1 = 0;
             end
             else begin
-                control_crossbar = 2'b10;   
+                control_crossbar = 2'b00;   
                 we_output_port_0 = 1;
                 we_output_port_1 = 0;
             end
@@ -323,18 +330,20 @@ always @(posedge clk or negedge rst_n) begin
     if(!rst_n) begin
         pkt_number <= 0;
         // control_crossbar <= 2'b00;
-        // data_port1_after <= 64'h0;
+        data_port1_after <= 64'h0;
         // we_output_port_0 <= 0;
         // we_output_port_1 <= 0;
+        data_port1_after_next <= 64'h0;
     end
     else begin
         case (current_state)
             IDLE: begin
                 pkt_number <= 0;
                 // control_crossbar <= 2'b00;
-                // data_port1_after <= 64'h0;
+                data_port1_after <= 64'h0;
                 // we_output_port_0 <= 0;
                 // we_output_port_1 <= 0;
+                data_port1_after_next <= 64'h0;
             end
             READ_ARBITER: begin
                 pkt_number <= 0;
@@ -385,8 +394,9 @@ always @(posedge clk or negedge rst_n) begin
                 // we_output_port_1 <= 0;
             end
             READ_INPUT_1: begin
+                data_port1_after_next <= ;
                 // pkt_number <= 0;
-                // data_port1_after[8:7] <= data_port1_before[8:7] - 1;
+                //data_port1_after[8:7] <= data_port1_before[8:7] - 1;
                 // if(data_port1_before[8:7] > 2'b01)begin
                 //     control_crossbar <= 2'b11;
                 //     we_output_port_0 <= 1;

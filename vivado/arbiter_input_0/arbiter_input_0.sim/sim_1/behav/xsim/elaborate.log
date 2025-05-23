@@ -1,0 +1,67 @@
+Vivado Simulator v2024.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /media/socone/3d608d90-f9bc-47ba-a88e-fa074a0a5a5b/socone/tool/Vivado/2024.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L blk_mem_gen_v8_4_8 -L fifo_generator_v13_2_10 -L util_vector_logic_v2_0_4 -L uvm -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_input_o_arbiter_behav xil_defaultlib.tb_input_o_arbiter xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "/home/socone/Documents/DATN/code/Router_datn/router_contoller/router_controller.v" Line 1. Module router_controller doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/socone/Documents/DATN/code/Router_datn/router_contoller/router_controller.v" Line 1. Module router_controller doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_unsigned
+Compiling package synopsys.attributes
+Compiling package ieee.std_logic_misc
+Compiling package fifo_generator_v13_2_10.fifo_generator_v13_2_10_pkg
+Compiling package xpm.vcomponents
+Compiling package ieee.numeric_std
+Compiling package unisim.vcomponents
+Compiling package ieee.vital_timing
+Compiling package ieee.vital_primitives
+Compiling package unisim.vpkg
+Compiling module xil_defaultlib.arbiter
+Compiling module xil_defaultlib.arbiter_wrapper
+Compiling module blk_mem_gen_v8_4_8.blk_mem_gen_v8_4_8_output_stage(...
+Compiling module blk_mem_gen_v8_4_8.blk_mem_gen_v8_4_8_softecc_outpu...
+Compiling module blk_mem_gen_v8_4_8.blk_mem_gen_v8_4_8_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_8.blk_mem_axi_regs_fwd_v8_4(C_DATA...
+Compiling module blk_mem_gen_v8_4_8.blk_mem_gen_v8_4_8(C_FAMILY="vir...
+Compiling module xil_defaultlib.blk_mem_gen_0
+Compiling module xil_defaultlib.arbiter_bram
+Compiling module xil_defaultlib.input_0_arbiter_arbiter_bram_0_0
+Compiling module xil_defaultlib.crossbar
+Compiling module xil_defaultlib.input_0_arbiter_crossbar_0_0
+Compiling module xil_defaultlib.merge_addr_data_default
+Compiling module xil_defaultlib.encap_packet_default
+Compiling module xil_defaultlib.encap_packet_top(DATA_DFX_WIDTH=...
+Compiling module xil_defaultlib.input_0_arbiter_encap_packet_top...
+Compiling architecture fifo36e2_v of entity unisim.FIFO36E2 [\FIFO36E2(cascade_order="FIRST",...]
+Compiling architecture amd of entity fifo_generator_v13_2_10.builtin_prim [\builtin_prim(c_din_width=64,c_d...]
+Compiling architecture fifo36e2_v of entity unisim.FIFO36E2 [\FIFO36E2(cascade_order="LAST",c...]
+Compiling architecture amd of entity fifo_generator_v13_2_10.builtin_prim [\builtin_prim(c_din_width=64,c_d...]
+Compiling architecture amd of entity fifo_generator_v13_2_10.builtin_extdepth [\builtin_extdepth(c_family="8SER...]
+Compiling architecture amd of entity fifo_generator_v13_2_10.builtin_top [\builtin_top(c_family="8SERIES",...]
+Compiling architecture amd of entity fifo_generator_v13_2_10.input_blk [\input_blk(c_din_width=64,c_pktf...]
+Compiling architecture amd of entity fifo_generator_v13_2_10.output_blk [\output_blk(c_dout_width=64,c_pk...]
+Compiling architecture amd of entity fifo_generator_v13_2_10.fifo_generator_v13_2_10_builtin [\fifo_generator_v13_2_10_builtin...]
+Compiling architecture amd of entity fifo_generator_v13_2_10.fifo_generator_top [\fifo_generator_top(c_family="vi...]
+Compiling architecture amd of entity fifo_generator_v13_2_10.fifo_generator_v13_2_10_synth [\fifo_generator_v13_2_10_synth(c...]
+Compiling module xil_defaultlib.input_0_arbiter_fifo_generator_0...
+Compiling module xil_defaultlib.input_0_arbiter_fifo_in_port_0_1
+Compiling module xil_defaultlib.input_0_arbiter_fifo_out_port_1_...
+Compiling module xil_defaultlib.input_0_arbiter_fifo_in_port_0_0
+Compiling module xil_defaultlib.router_controller
+Compiling module xil_defaultlib.input_0_arbiter_router_controlle...
+Compiling module util_vector_logic_v2_0_4.util_vector_logic_v2_0_4_util_ve...
+Compiling module xil_defaultlib.input_0_arbiter_util_vector_logi...
+Compiling module xil_defaultlib.input_0_arbiter
+Compiling module xil_defaultlib.input_0_arbiter_wrapper
+Compiling module xil_defaultlib.tb_input_o_arbiter
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_input_o_arbiter_behav
