@@ -32,7 +32,7 @@ module router_controller2
     output reg                      rd_input_port_0,
 /////////////input port 1////////////
     input               empty_input_port_1,
-    output reg          rd_input_port_1,
+    output reg          rd_input_port_1, 
 /////////////output port 0////////////
     input                           empty_output_port_0,
     input                           decap_done,
