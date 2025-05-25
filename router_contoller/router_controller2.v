@@ -56,8 +56,9 @@ parameter READ_ARBITER_DELAY = 4'b0010;
 parameter START_ENCAP_PKT = 4'b0011;
 parameter ENCAP_PKT = 4'b0100;
 parameter READ_INPUT_0 = 4'b0101;
-parameter READ_OUTPUT_1 = 4'b0110;
-parameter READ_INPUT_1 = 4'b0111;
+parameter READ_INPUT_1 = 4'b0110;
+parameter READ_OUTPUT_0 = 4'b0111;
+parameter DECAP_PKT = 4'b1000;
 
 always @(posedge clk or negedge rst_n) begin
     if(!rst_n) begin
@@ -69,51 +70,7 @@ always @(posedge clk or negedge rst_n) begin
     end
 end
 ///////// next state logic //////////
-always @(*) begin
-    case(current_state)
-        IDLE: begin
-            if(router_start_req) begin
-                next_state = READ_ARBITER;
-            end else if(empty_input_port_1 == 0) begin
-                next_state = READ_INPUT_1;
-            end else begin
-                next_state = IDLE;
-            end
-        end
-        READ_ARBITER: begin
-            next_state = arbiter_read_gnt ? READ_ARBITER_DELAY : READ_ARBITER;
-        end
-        READ_ARBITER_DELAY: begin
-            next_state = START_ENCAP_PKT;
-        end
-        START_ENCAP_PKT: begin
-            next_state = ENCAP_PKT;
-        end
-        ENCAP_PKT: begin
-            next_state = (empty_input_port_0 == 0) ? READ_INPUT_0 : ENCAP_PKT;
-        end
-        READ_INPUT_0: begin
-            next_state = READ_OUTPUT_1;
-        end
-        READ_OUTPUT_1: begin
-            if(empty_input_port_0 == 0) begin
-                next_state = READ_OUTPUT_1;
-            end
-            else begin
-                next_state = IDLE;
-            end
-        end
-        READ_INPUT_1: begin
-            if(empty_input_port_1 == 0) begin
-                next_state = READ_INPUT_1;
-            end
-            else begin
-                next_state = IDLE;
-            end
-        end
-        default: next_state = IDLE;
-    endcase
-end
+
 
 /////////// output logic //////////
 
