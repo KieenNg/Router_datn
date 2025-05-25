@@ -1,4 +1,4 @@
-module router_controller
+module router_controller2
 #(
     parameter AURORA_DATA_WIDTH = 64,
     parameter ADDR_WIDTH = 10,

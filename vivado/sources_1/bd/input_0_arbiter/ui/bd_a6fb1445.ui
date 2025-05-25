@@ -1,64 +1,74 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.942682",
-   "Default View_TopLeft":"-237,792",
+   "Default View_ScaleFactor":"0.542522",
+   "Default View_TopLeft":"-599,4",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.7.1 2023-07-26 3bc4126617 VDI=43 GEI=38 GUI=JA:21.0 TLS
 #  -string -flagsOSRD
-preplace port port-id_clk -pg 1 -lvl 0 -x -30 -y 1010 -defaultsOSRD
-preplace port port-id_rst_n -pg 1 -lvl 0 -x -30 -y 1030 -defaultsOSRD
-preplace port port-id_router_start_req -pg 1 -lvl 0 -x -30 -y 580 -defaultsOSRD
-preplace port port-id_aurora_rx_tvalid -pg 1 -lvl 0 -x -30 -y 1290 -defaultsOSRD
-preplace portBus router_scr_addr -pg 1 -lvl 0 -x -30 -y 560 -defaultsOSRD
-preplace portBus router_dst_addr -pg 1 -lvl 0 -x -30 -y 540 -defaultsOSRD
-preplace portBus aurora_rx_tdata -pg 1 -lvl 0 -x -30 -y 1262 -defaultsOSRD
-preplace inst router_controller_0 -pg 1 -lvl 2 -x 860 -y 830 -defaultsOSRD
-preplace inst arbiter_bram_0 -pg 1 -lvl 3 -x 1490 -y 400 -defaultsOSRD
-preplace inst fifo_in_port_0 -pg 1 -lvl 3 -x 1490 -y 1050 -defaultsOSRD
-preplace inst encap_packet_top_0 -pg 1 -lvl 1 -x 280 -y 1060 -defaultsOSRD
-preplace inst util_vector_logic_0 -pg 1 -lvl 2 -x 860 -y 1396 -defaultsOSRD
-preplace inst fifo_out_port_1 -pg 1 -lvl 3 -x 1490 -y 680 -defaultsOSRD -resize 320 256
-preplace inst crossbar_0 -pg 1 -lvl 1 -x 280 -y 850 -defaultsOSRD
-preplace inst fifo_in_port_1 -pg 1 -lvl 3 -x 1490 -y 1310 -defaultsOSRD -resize 320 236
-preplace inst fifo_out_port_0 -pg 1 -lvl 3 -x 1490 -y 150 -defaultsOSRD -resize 320 256
-preplace netloc arbiter_bram_0_data_arbiter_send 1 0 4 70 950 530J 1040 1240J 910 1730
-preplace netloc arbiter_bram_0_read_gnt 1 1 3 590 1280 1090J 1450 1740
-preplace netloc arbiter_bram_0_write_gnt 1 1 3 630 530 NJ 530 1720
-preplace netloc clk_0_1 1 0 3 -10 690 570 620 1230
-preplace netloc crossbar_0_data_out_port_0 1 1 2 490J 80 N
-preplace netloc crossbar_0_data_out_port_1 1 1 2 500J 610 N
-preplace netloc crossbar_0_data_port_1_before 1 1 1 N 830
-preplace netloc encap_packet_top_0_data_encap_valid 1 1 2 NJ 1060 1260
-preplace netloc encap_packet_top_0_data_send 1 1 2 490 1070 1250J
-preplace netloc encap_packet_top_0_encap_done 1 1 1 510 870n
-preplace netloc fifo_generator_0_empty 1 1 2 630 1050 NJ
-preplace netloc fifo_in_port_0_dout 1 0 3 70 760 520J 1080 1260
-preplace netloc fifo_in_port_1_dout 1 0 3 10 1336 NJ 1336 NJ
-preplace netloc fifo_in_port_1_empty 1 1 2 610 1318 NJ
-preplace netloc fifo_out_port_0_empty 1 1 2 620 160 NJ
-preplace netloc router_controller_0_arbiter_dst_addr 1 2 1 1190 420n
-preplace netloc router_controller_0_arbiter_read_req 1 2 1 1160 400n
-preplace netloc router_controller_0_arbiter_src_addr 1 2 1 1170 380n
-preplace netloc router_controller_0_arbiter_write_req 1 2 1 1180 460n
-preplace netloc router_controller_0_control_crossbar 1 0 3 60 1170 NJ 1170 1120
-preplace netloc router_controller_0_data_port1_after 1 0 3 50 1180 NJ 1180 1130
-preplace netloc router_controller_0_header_pkt_send 1 0 3 40 1190 NJ 1190 1090
-preplace netloc router_controller_0_rd_input_port_0 1 2 1 1220 880n
-preplace netloc router_controller_0_rd_input_port_1 1 2 1 1180 900n
-preplace netloc router_controller_0_rd_output_port_0 1 2 1 1150 190n
-preplace netloc router_controller_0_router_dst_addr_send 1 0 3 30 1200 NJ 1200 1100
-preplace netloc router_controller_0_start_encap_pkt 1 0 3 20 1210 NJ 1210 1110
-preplace netloc router_controller_0_we_output_port_0 1 2 1 1140 100n
-preplace netloc router_controller_0_we_output_port_1 1 2 1 1200 630n
-preplace netloc router_dst_addr_0_1 1 0 2 NJ 540 600J
-preplace netloc router_scr_addr_0_1 1 0 2 NJ 560 590J
-preplace netloc router_start_req_0_1 1 0 2 NJ 580 580J
-preplace netloc rst_n_0_1 1 0 3 0 940 560 360 NJ
-preplace netloc util_vector_logic_0_Res 1 2 1 1210 240n
-preplace netloc din_0_1 1 0 3 NJ 1262 NJ 1262 1120J
-preplace netloc wr_en_0_1 1 0 3 NJ 1290 NJ 1290 1260J
-levelinfo -pg 1 -30 280 860 1490 1760
-pagesize -pg 1 -db -bbox -sgen -240 0 1760 1460
+preplace port port-id_clk -pg 1 -lvl 0 -x 0 -y 660 -defaultsOSRD
+preplace port port-id_rst_n -pg 1 -lvl 0 -x 0 -y 680 -defaultsOSRD
+preplace port port-id_router_start_req -pg 1 -lvl 0 -x 0 -y 560 -defaultsOSRD
+preplace port port-id_router_done -pg 1 -lvl 5 -x 2250 -y 500 -defaultsOSRD
+preplace portBus router_scr_addr -pg 1 -lvl 0 -x 0 -y 580 -defaultsOSRD
+preplace portBus router_dst_addr -pg 1 -lvl 0 -x 0 -y 600 -defaultsOSRD
+preplace inst router_controller_0 -pg 1 -lvl 3 -x 1410 -y 660 -defaultsOSRD
+preplace inst arbiter_bram_0 -pg 1 -lvl 1 -x 290 -y 720 -defaultsOSRD
+preplace inst fifo_in_port_0 -pg 1 -lvl 4 -x 2020 -y 970 -defaultsOSRD
+preplace inst encap_packet_top_0 -pg 1 -lvl 2 -x 850 -y 1050 -defaultsOSRD
+preplace inst util_vector_logic_0 -pg 1 -lvl 2 -x 850 -y 300 -defaultsOSRD
+preplace inst fifo_out_port_1 -pg 1 -lvl 4 -x 2020 -y 310 -defaultsOSRD -resize 320 256
+preplace inst crossbar_0 -pg 1 -lvl 2 -x 850 -y 800 -defaultsOSRD
+preplace inst fifo_in_port_1 -pg 1 -lvl 4 -x 2020 -y 1230 -defaultsOSRD -resize 320 236
+preplace inst fifo_out_port_0 -pg 1 -lvl 4 -x 2020 -y 700 -defaultsOSRD -resize 320 256
+preplace inst aurora_tx -pg 1 -lvl 2 -x 850 -y 110 -defaultsOSRD
+preplace inst util_vector_logic_1 -pg 1 -lvl 1 -x 290 -y 120 -defaultsOSRD
+preplace inst decap_packet_0 -pg 1 -lvl 2 -x 850 -y 430 -defaultsOSRD
+preplace inst separate_addr_data_0 -pg 1 -lvl 4 -x 2020 -y 110 -defaultsOSRD
+preplace netloc arbiter_bram_0_data_arbiter_send 1 1 1 530 700n
+preplace netloc arbiter_bram_0_read_gnt 1 1 2 520 620 NJ
+preplace netloc arbiter_bram_0_write_gnt 1 1 2 540 640 NJ
+preplace netloc axis_data_fifo_0_s_axis_tready 1 1 3 640 520 1070J 410 1710
+preplace netloc clk_0_1 1 0 4 60 570 560 530 1080 420 1800
+preplace netloc crossbar_0_data_out_port_0 1 2 2 1120J 430 1760
+preplace netloc crossbar_0_data_out_port_1 1 2 2 1100 240 NJ
+preplace netloc crossbar_0_data_port_1_before 1 2 1 1130 660n
+preplace netloc encap_packet_top_0_data_encap_valid 1 2 2 N 1050 1720
+preplace netloc encap_packet_top_0_data_send 1 2 2 N 1030 1710
+preplace netloc encap_packet_top_0_encap_done 1 2 1 1150 700n
+preplace netloc fifo_generator_0_empty 1 2 2 1170 970 NJ
+preplace netloc fifo_in_port_0_dout 1 1 3 620 940 1060J 990 NJ
+preplace netloc fifo_in_port_1_dout 1 1 3 540 1250 NJ 1250 NJ
+preplace netloc fifo_in_port_1_empty 1 2 2 1160 1230 NJ
+preplace netloc fifo_out_port_0_empty 1 2 2 1180 880 1790J
+preplace netloc fifo_out_port_1_dout 1 1 3 610 230 NJ 230 1800J
+preplace netloc fifo_out_port_1_empty 1 0 4 60 240 NJ 240 1070J 250 1760J
+preplace netloc router_controller_0_arbiter_dst_addr 1 0 4 40 910 NJ 910 NJ 910 1660
+preplace netloc router_controller_0_arbiter_read_req 1 0 4 30 920 NJ 920 NJ 920 1720
+preplace netloc router_controller_0_arbiter_src_addr 1 0 4 60 840 580J 710 1080J 940 1690
+preplace netloc router_controller_0_arbiter_write_req 1 0 4 50 850 570J 700 1110J 890 1710
+preplace netloc router_controller_0_control_crossbar 1 1 3 630 930 NJ 930 1650
+preplace netloc router_controller_0_data_port1_after 1 1 3 640 890 1070J 960 1680
+preplace netloc router_controller_0_header_pkt_send 1 1 3 590 1170 NJ 1170 1670
+preplace netloc router_controller_0_rd_input_port_0 1 3 1 1770 700n
+preplace netloc router_controller_0_rd_input_port_1 1 3 1 1730 720n
+preplace netloc router_controller_0_rd_output_port_0 1 3 1 1780 750n
+preplace netloc router_controller_0_router_done 1 3 2 NJ 500 NJ
+preplace netloc router_controller_0_router_dst_addr_send 1 1 3 610 1160 NJ 1160 1700
+preplace netloc router_controller_0_start_encap_pkt 1 1 3 600 550 1110J 440 1640
+preplace netloc router_controller_0_we_output_port_0 1 3 1 1760 650n
+preplace netloc router_controller_0_we_output_port_1 1 3 1 1750 260n
+preplace netloc router_dst_addr_0_1 1 0 3 NJ 600 NJ 600 NJ
+preplace netloc router_scr_addr_0_1 1 0 3 NJ 580 NJ 580 NJ
+preplace netloc router_start_req_0_1 1 0 3 NJ 560 NJ 560 NJ
+preplace netloc rst_n_0_1 1 0 3 30 550 550 540 N
+preplace netloc util_vector_logic_0_Res 1 2 2 NJ 300 1740
+preplace netloc util_vector_logic_1_Res 1 1 1 NJ 120
+preplace netloc fifo_out_port_0_dout 1 1 3 590 900 NJ 900 1810
+preplace netloc router_controller_0_start_decap_pkt 1 1 3 610 690 1090J 950 1640
+preplace netloc decap_packet_0_decap_done 1 2 1 1140 450n
+preplace netloc decap_packet_0_data_dfx_recv 1 2 2 1060J 110 NJ
+levelinfo -pg 1 0 290 850 1410 2020 2250
+pagesize -pg 1 -db -bbox -sgen -200 0 2390 1370
 "
 }
 0

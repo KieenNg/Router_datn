@@ -59,12 +59,14 @@ module controller_arbiter
     output reg          rd_input_port_1,
 /////////////output port 0////////////
     input                           empty_output_port_0,
-    input                           done_encap_pkt,
+    input                           decap_done,
+    input                           empty_arbiter_fifo,
     input [ADDR_WIDTH - 1:0]        dst_addr_arbiter_recv,
-    input [8:0]                     header_pkt_recv,
+
     output reg                      start_decap_pkt,
     output reg                      rd_output_port_0,
     output reg                      we_output_port_0,
+    output reg                      read_arbiter_fifo,
 /////////////output port 1////////////
     output reg                      we_output_port_1
 );
