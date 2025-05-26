@@ -2,7 +2,7 @@
 //Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2024.1 (lin64) Build 5076996 Wed May 22 18:36:09 MDT 2024
-//Date        : Sat May 24 02:30:47 2025
+//Date        : Mon May 26 00:28:14 2025
 //Host        : edabk running 64-bit CentOS Linux release 7.9.2009 (Core)
 //Command     : generate_target input_0_arbiter.bd
 //Design      : input_0_arbiter
@@ -128,12 +128,12 @@ module input_0_arbiter
         .wr_en(encap_packet_top_0_data_encap_valid));
   input_0_arbiter_fifo_in_port_0_1 fifo_in_port_1
        (.clk(clk_0_1),
-        .din(encap_packet_top_0_data_send),
+        .din(fifo_out_port_1_dout),
         .dout(fifo_in_port_1_dout),
         .empty(fifo_in_port_1_empty),
         .rd_en(router_controller_0_rd_input_port_1),
         .srst(util_vector_logic_0_Res),
-        .wr_en(encap_packet_top_0_data_encap_valid));
+        .wr_en(util_vector_logic_1_Res));
   input_0_arbiter_fifo_out_port_1_0 fifo_out_port_0
        (.clk(clk_0_1),
         .din(crossbar_0_data_out_port_0),

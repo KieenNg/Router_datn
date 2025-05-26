@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sat May 24 02:30:48 2025" VIVADOVERSION="2024.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon May 26 00:28:14 2025" VIVADOVERSION="2024.1">
 
   <SYSTEMINFO ARCH="virtexuplus" BOARD="xilinx.com:au250:part0:1.3" DEVICE="xcu250" NAME="input_0_arbiter" PACKAGE="figd2104" SPEEDGRADE="-2L"/>
 
@@ -352,13 +352,11 @@
         <PORT DIR="O" NAME="data_encap_valid" SIGIS="undef" SIGNAME="encap_packet_top_0_data_encap_valid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="fifo_in_port_0" PORT="wr_en"/>
-            <CONNECTION INSTANCE="fifo_in_port_1" PORT="wr_en"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="63" NAME="data_send" RIGHT="0" SIGIS="undef" SIGNAME="encap_packet_top_0_data_send">
           <CONNECTIONS>
             <CONNECTION INSTANCE="fifo_in_port_0" PORT="din"/>
-            <CONNECTION INSTANCE="fifo_in_port_1" PORT="din"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="encap_done" SIGIS="undef" SIGNAME="encap_packet_top_0_encap_done">
@@ -1204,9 +1202,9 @@
             <CONNECTION INSTANCE="External_Ports" PORT="clk"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="63" NAME="din" RIGHT="0" SIGIS="undef" SIGNAME="encap_packet_top_0_data_send">
+        <PORT DIR="I" LEFT="63" NAME="din" RIGHT="0" SIGIS="undef" SIGNAME="fifo_out_port_1_dout">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="encap_packet_top_0" PORT="data_send"/>
+            <CONNECTION INSTANCE="fifo_out_port_1" PORT="dout"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="63" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="fifo_in_port_1_dout">
@@ -1231,9 +1229,9 @@
             <CONNECTION INSTANCE="util_vector_logic_0" PORT="Res"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="wr_en" SIGIS="undef" SIGNAME="encap_packet_top_0_data_encap_valid">
+        <PORT DIR="I" NAME="wr_en" SIGIS="undef" SIGNAME="util_vector_logic_1_Res">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="encap_packet_top_0" PORT="data_encap_valid"/>
+            <CONNECTION INSTANCE="util_vector_logic_1" PORT="Res"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="wr_rst_busy" SIGIS="undef"/>
@@ -2078,6 +2076,7 @@
         <PORT DIR="O" LEFT="63" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="fifo_out_port_1_dout">
           <CONNECTIONS>
             <CONNECTION INSTANCE="aurora_tx" PORT="s_axis_tdata"/>
+            <CONNECTION INSTANCE="fifo_in_port_1" PORT="din"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="empty" SIGIS="undef" SIGNAME="fifo_out_port_1_empty">
@@ -2347,6 +2346,7 @@
         <PORT DIR="O" LEFT="0" NAME="Res" RIGHT="0" SIGIS="undef" SIGNAME="util_vector_logic_1_Res">
           <CONNECTIONS>
             <CONNECTION INSTANCE="aurora_tx" PORT="s_axis_tvalid"/>
+            <CONNECTION INSTANCE="fifo_in_port_1" PORT="wr_en"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

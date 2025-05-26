@@ -664,15 +664,13 @@
       "encap_packet_top_0_data_encap_valid": {
         "ports": [
           "encap_packet_top_0/data_encap_valid",
-          "fifo_in_port_0/wr_en",
-          "fifo_in_port_1/wr_en"
+          "fifo_in_port_0/wr_en"
         ]
       },
       "encap_packet_top_0_data_send": {
         "ports": [
           "encap_packet_top_0/data_send",
-          "fifo_in_port_0/din",
-          "fifo_in_port_1/din"
+          "fifo_in_port_0/din"
         ]
       },
       "encap_packet_top_0_encap_done": {
@@ -720,7 +718,8 @@
       "fifo_out_port_1_dout": {
         "ports": [
           "fifo_out_port_1/dout",
-          "aurora_tx/s_axis_tdata"
+          "aurora_tx/s_axis_tdata",
+          "fifo_in_port_1/din"
         ]
       },
       "fifo_out_port_1_empty": {
@@ -866,7 +865,8 @@
       "util_vector_logic_1_Res": {
         "ports": [
           "util_vector_logic_1/Res",
-          "aurora_tx/s_axis_tvalid"
+          "aurora_tx/s_axis_tvalid",
+          "fifo_in_port_1/wr_en"
         ]
       }
     }
