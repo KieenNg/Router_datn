@@ -66,16 +66,16 @@ always @(*) begin
             end
         end
         ENCODE_PKT: begin
-            if(encode_done) begin
-                next_state = ENCODE_PKT_DONE;
+            if(pkt_number == 18) begin
+                next_state = IDLE;
             end
             else begin
                 next_state = ENCODE_PKT;
             end
         end
-        ENCODE_PKT_DONE: begin
-            next_state = IDLE;
-        end
+        // ENCODE_PKT_DONE: begin
+        //     next_state = IDLE;
+        // end
         default: begin
             next_state = IDLE;
         end
@@ -84,7 +84,6 @@ end
 /***************************************************************
  * Output logic: control signals
 **************************************************************/
-//reg [ADDR_WIDTH - 1:0] router_dst_addr_send_reg;
 reg [DATA_DFX_WIDTH - 1:0] data_dfx_send_reg;
 always @(posedge clk or negedge rst_n) begin
     if(!rst_n) begin
@@ -95,7 +94,6 @@ always @(posedge clk or negedge rst_n) begin
         case (current_state)
             IDLE: begin
                 if(ctrl_encode_valid_i && ctrl_encode_ready_o) begin
-                    //data_dfx_send_reg[1033:10] <= data_arbiter_send_reg;
                     data_dfx_send_reg[9:0] <= router_dst_addr_send;
                     ctrl_encode_ready_o <= 0;
                 end
@@ -110,7 +108,7 @@ always @(posedge clk or negedge rst_n) begin
     end
 end
 /***************************************************************
- * Output logic: fifo
+ * Output logic: fifo 
 **************************************************************/
 always @(posedge clk or negedge rst_n) begin
     if(!rst_n) begin
@@ -124,7 +122,6 @@ always @(posedge clk or negedge rst_n) begin
             ENCODE_PKT: begin
                 encode_valid_o <= 1;
                 if(pkt_number == NUMBER_PACKET - 1) begin
-                    encode_valid_o <= 0;
                     encode_done <= 1;
                     pkt_number <= 0;
                     data_send <= {11'b0, data_dfx_send_reg[1023:990], TTL, pkt_number, src_router};
@@ -135,13 +132,8 @@ always @(posedge clk or negedge rst_n) begin
                     data_send <= {data_dfx_send_reg[pkt_number*55 +: 55], TTL, pkt_number, src_router};
                 end
             end
-            ENCODE_PKT_DONE: begin
-                encode_valid_o <= 0;
-                data_send <= 0;
-                pkt_number <= 0;
-                encode_done <= 0;
-            end
             default: begin
+                encode_done <= 0;
                 pkt_number <= 0;
                 encode_valid_o <= 0;
                 data_send <= 0;
