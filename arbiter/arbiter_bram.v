@@ -22,33 +22,33 @@
 
 module arbiter_bram
 #(
-    parameter VRF_ADDR_WIDTH = 10,
-    parameter VRF_DATA_WIDTH = 1024
+    parameter ADDR_WIDTH = 10,
+    parameter DATA_WIDTH = 1024
 ) (
     input clk,
     input rst_n,
      // Router interface
-    input [VRF_ADDR_WIDTH-1:0] src_addr,
-    output  [VRF_DATA_WIDTH-1:0] data_arbiter_send,
+    input [ADDR_WIDTH-1:0] src_addr,
+    output  [DATA_WIDTH-1:0] data_arbiter_send,
     input read_req,
     output  read_gnt,
     
-    input [VRF_ADDR_WIDTH-1:0] dst_addr,
-    input [VRF_DATA_WIDTH-1:0] data_arbiter_recv,
+    input [ADDR_WIDTH-1:0] dst_addr,
+    input [DATA_WIDTH-1:0] data_arbiter_recv,
     input write_req,
     output  write_gnt
 );
 //BRAM port A
-    wire [VRF_ADDR_WIDTH-1:0] bram_a_addr_o;
-    wire [VRF_DATA_WIDTH-1:0] bram_a_dout_i;
-    wire [VRF_DATA_WIDTH-1:0] bram_a_din_o;
+    wire [ADDR_WIDTH-1:0] bram_a_addr_o;
+    wire [DATA_WIDTH-1:0] bram_a_dout_i;
+    wire [DATA_WIDTH-1:0] bram_a_din_o;
     wire bram_a_en_o;
     wire bram_a_we_o;
 
     //BRAM port B
-    wire  [VRF_ADDR_WIDTH-1:0] bram_b_addr_o;
-    wire [VRF_DATA_WIDTH-1:0] bram_b_dout_i;
-    wire  [VRF_DATA_WIDTH-1:0] bram_b_din_o;
+    wire  [ADDR_WIDTH-1:0] bram_b_addr_o;
+    wire [DATA_WIDTH-1:0] bram_b_dout_i;
+    wire  [DATA_WIDTH-1:0] bram_b_din_o;
     wire  bram_b_en_o;
     wire  bram_b_we_o;
     arbiter_wrapper arbiter_wrapper_i(
