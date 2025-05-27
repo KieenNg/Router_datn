@@ -124,7 +124,7 @@ always @(posedge clk or negedge rst_n) begin
                 if(pkt_number == NUMBER_PACKET - 1) begin
                     encode_done <= 1;
                     pkt_number <= 0;
-                    data_send <= {11'b0, data_dfx_send_reg[1023:990], TTL, pkt_number, src_router};
+                    data_send <= {11'b0, data_dfx_send_reg[1033:990], TTL, pkt_number, src_router};
                 end
                 else begin
                     encode_done <= 0;

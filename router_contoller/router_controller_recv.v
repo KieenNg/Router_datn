@@ -28,7 +28,7 @@ reg [1:0] next_state;
 parameter IDLE = 2'b00;
 parameter READ_PKT = 2'b01;
 parameter DECODE_PKT = 2'b10;
-//parameter DECODE_DONE = 2'b11;
+parameter WRITE_ARBITER = 2'b11;
 
 always @(posedge clk or negedge rst_n) begin
     if(!rst_n) begin
@@ -42,13 +42,14 @@ end
 always @(*) begin
     case(current_state)
         IDLE: begin
-            if(!empty_pkt_fifo) begin
+            if(!empty_arbiter_fifo)begin
+                next_state = WRITE_ARBITER;
+            end else if(!empty_pkt_fifo) begin
                 next_state = READ_PKT;
             end else begin
                 next_state = IDLE;
             end
         end
-        
         READ_PKT: begin
             next_state = DECODE_PKT;
         end
@@ -59,8 +60,38 @@ always @(*) begin
                 next_state = DECODE_PKT;
             end
         end
+        WRITE_ARBITER: begin
+            if(arbiter_write_gnt) begin
+                next_state = IDLE;
+            end else begin
+                next_state = WRITE_ARBITER;
+            end
+        end
         default: next_state = IDLE;
     endcase 
+end
+// write arbiter interface
+always @(*) begin
+    case (current_state)
+        IDLE: begin
+            if(!empty_arbiter_fifo) begin
+                arbiter_write_req = 1'b1;
+            end else begin
+                arbiter_write_req = 1'b0;
+            end
+        end
+        WRITE_ARBITER: begin
+            if(arbiter_write_gnt) begin
+                read_arbiter_fifo = 1'b1;
+            end else begin
+                read_arbiter_fifo = 1'b0;
+            end
+        end
+        default: begin
+            arbiter_write_req = 1'b0;
+            read_arbiter_fifo = 1'b0;
+        end
+    endcase
 end
 // packet fifo interface
 always @(*) begin

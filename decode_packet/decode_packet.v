@@ -51,11 +51,12 @@ always @(*) begin
             end
         end
         DECODE_PKT: begin
-            if (decode_done) begin
-                next_state = DECODE_PKT_DONE;
-            end else begin
-                next_state = DECODE_PKT;
-            end
+            // if (decode_done) begin
+            //     next_state = DECODE_PKT_DONE;
+            // end else begin
+            //     next_state = DECODE_PKT;
+            // end
+            next_state = DECODE_PKT_DONE;
         end
         DECODE_PKT_DONE: begin
             next_state = IDLE;
@@ -65,6 +66,7 @@ always @(*) begin
 end
 
 reg [AURORA_DATA_WIDTH - 1:0] data_recv_reg;
+reg valid_dfx_data_reg;
 reg [1:0] src_router;
 reg [$clog2(NUMBER_PACKET) - 1:0] pkt_number;
 always @(*) begin
@@ -91,79 +93,6 @@ always @(posedge clk or negedge rst_n) begin
         endcase
     end
 end
-// always @(*) begin
-//     case(current_state)
-//         IDLE: begin
-//             valid_dfx_data = 0;
-//             data_dfx_recv = 0;
-//             decode_done = 0;
-//         end
-//         DECODE_PKT: begin
-//             decode_done = 1;
-//             case(src_router)
-//                 ROUTER_0: begin
-//                     if (pkt_number < 18) begin
-//                         data_dfx_recv_router_0[pkt_number*55 +: 55] = data_recv_reg[63:9];
-//                         valid_dfx_data = 0;
-//                         data_dfx_recv = 0;
-//                     end else begin
-//                         data_dfx_recv_router_0[1033:990] = data_recv_reg[52:9];
-//                         valid_dfx_data = 1;
-//                         data_dfx_recv = data_dfx_recv_router_0;
-//                     end
-//                 end
-//                 ROUTER_1: begin
-//                     if (pkt_number < 18) begin
-//                         data_dfx_recv_router_1[pkt_number*55 +: 55] = data_recv_reg[63:9];
-//                         valid_dfx_data = 0;
-//                         data_dfx_recv = 0;
-//                     end else begin
-//                         data_dfx_recv_router_1[1033:990] = data_recv_reg[52:9];
-//                         valid_dfx_data = 1;
-//                         data_dfx_recv = data_dfx_recv_router_1;
-//                     end
-//                 end
-//                 ROUTER_2: begin
-//                     if (pkt_number < 18) begin
-//                         data_dfx_recv_router_2[pkt_number*55 +: 55] = data_recv_reg[63:9];
-//                         valid_dfx_data = 0;
-//                         data_dfx_recv = 0;
-//                     end else begin
-//                         data_dfx_recv_router_2[1033:990] = data_recv_reg[52:9];
-//                         valid_dfx_data = 1;
-//                         data_dfx_recv = data_dfx_recv_router_2;
-//                     end
-//                 end
-//                 ROUTER_3: begin
-//                     if (pkt_number < 18) begin
-//                         data_dfx_recv_router_3[pkt_number*55 +: 55] = data_recv_reg[63:9];
-//                         valid_dfx_data = 0;
-//                         data_dfx_recv = 0;
-//                     end else begin
-//                         data_dfx_recv_router_3[1033:990] = data_recv_reg[52:9];
-//                         valid_dfx_data = 1;
-//                         data_dfx_recv = data_dfx_recv_router_3;
-//                     end
-//                 end
-//                 default: begin
-//                     data_dfx_recv_router_0 = data_dfx_recv_router_0;
-//                     data_dfx_recv_router_1 = data_dfx_recv_router_1;
-//                     data_dfx_recv_router_2 = data_dfx_recv_router_2;
-//                     data_dfx_recv_router_3 = data_dfx_recv_router_3;
-//                     valid_dfx_data = 0;
-//                     data_dfx_recv = 0;
-//                 end
-//             endcase
-//         end
-//         DECODE_PKT_DONE: begin
-//             valid_dfx_data = 0;
-//             data_dfx_recv = 0;
-//             decode_done = 0;
-//         end
-//         default: begin
-//         end
-//     endcase
-// end
 
 always @(posedge clk or negedge rst_n) begin
     if(!rst_n) begin
@@ -171,61 +100,51 @@ always @(posedge clk or negedge rst_n) begin
         data_dfx_recv_router_1 <= 0;
         data_dfx_recv_router_2 <= 0;
         data_dfx_recv_router_3 <= 0;
-        valid_dfx_data <= 0;
-        data_dfx_recv <= 0;
+        valid_dfx_data_reg <= 0;
         decode_done <= 0;
     end
     case(current_state)
         IDLE: begin
-            valid_dfx_data <= 0;
-            data_dfx_recv <= 0;
+            valid_dfx_data_reg <= 0;
             decode_done <= 0;
         end
         DECODE_PKT: begin
-            decode_done <= 1;
+            decode_done <= 0;
             case(src_router)
                 ROUTER_0: begin
                     if (pkt_number < 18) begin
                         data_dfx_recv_router_0[pkt_number*55 +: 55] <= data_recv_reg[63:9];
-                        valid_dfx_data <= 0;
-                        data_dfx_recv <= 0;
+                        valid_dfx_data_reg <= 0;
                     end else begin
                         data_dfx_recv_router_0[1033:990] <= data_recv_reg[52:9];
-                        valid_dfx_data <= 1;
-                        data_dfx_recv <= data_dfx_recv_router_0;
+                        valid_dfx_data_reg <= 1;
                     end
                 end
                 ROUTER_1: begin
                     if (pkt_number < 18) begin
                         data_dfx_recv_router_1[pkt_number*55 +: 55] <= data_recv_reg[63:9];
-                        valid_dfx_data <= 0;
-                        data_dfx_recv <= 0;
+                        valid_dfx_data_reg <= 0;
                     end else begin
                         data_dfx_recv_router_1[1033:990] <= data_recv_reg[52:9];
-                        valid_dfx_data <= 1;
-                        data_dfx_recv <= data_dfx_recv_router_1;
+                        valid_dfx_data_reg <= 1;
                     end
                 end
                 ROUTER_2: begin
                     if (pkt_number < 18) begin
                         data_dfx_recv_router_2[pkt_number*55 +: 55] <= data_recv_reg[63:9];
-                        valid_dfx_data <= 0;
-                        data_dfx_recv <= 0;
+                        valid_dfx_data_reg <= 0;
                     end else begin
                         data_dfx_recv_router_2[1033:990] <= data_recv_reg[52:9];
-                        valid_dfx_data <= 1;
-                        data_dfx_recv <= data_dfx_recv_router_2;
+                        valid_dfx_data_reg <= 1;
                     end
                 end
                 ROUTER_3: begin
                     if (pkt_number < 18) begin
                         data_dfx_recv_router_3[pkt_number*55 +: 55] <= data_recv_reg[63:9];
-                        valid_dfx_data <= 0;
-                        data_dfx_recv <= 0;
+                        valid_dfx_data_reg <= 0;
                     end else begin
                         data_dfx_recv_router_3[1033:990] <= data_recv_reg[52:9];
-                        valid_dfx_data <= 1;
-                        data_dfx_recv <= data_dfx_recv_router_3;
+                        valid_dfx_data_reg <= 1;
                     end
                 end
                 default: begin
@@ -233,33 +152,64 @@ always @(posedge clk or negedge rst_n) begin
                     data_dfx_recv_router_1 <= data_dfx_recv_router_1;
                     data_dfx_recv_router_2 <= data_dfx_recv_router_2;
                     data_dfx_recv_router_3 <= data_dfx_recv_router_3;
-                    valid_dfx_data <= 0;
-                    data_dfx_recv <= 0;
+                    valid_dfx_data_reg <= 0;
                 end
             endcase
         end
         DECODE_PKT_DONE: begin
-            valid_dfx_data <= 0;
-            data_dfx_recv <= 0;
-            decode_done <= 0;
+            valid_dfx_data_reg <= 0;
+            decode_done <= 1;
         end
         default: begin
         end
     endcase
 end
-
-// always @(posedge clk or negedge rst_n) begin
-//     if(!rst_n) begin
-//         decode_done <= 0;
-//     end else begin
-//         case(current_state)
-//             DECODE_PKT_DONE: begin
-//                 decode_done <= 1;
-//             end
-//             default: begin
-//                 decode_done <= 0;
-//             end
-//         endcase
-//     end
-// end
+always @(posedge clk or negedge rst_n) begin
+    if(!rst_n) begin
+        data_dfx_recv <= 0;
+        valid_dfx_data <= 0;
+    end else begin
+        valid_dfx_data <= valid_dfx_data_reg;
+        case(current_state)
+            DECODE_PKT_DONE: begin
+                case(src_router)
+                    ROUTER_0: begin
+                        if (valid_dfx_data_reg) begin
+                            data_dfx_recv <= data_dfx_recv_router_0;
+                        end else begin
+                            data_dfx_recv <= 0;
+                        end
+                    end
+                    ROUTER_1: begin
+                        if (valid_dfx_data_reg) begin
+                            data_dfx_recv <= data_dfx_recv_router_1;
+                        end else begin
+                            data_dfx_recv <= 0;
+                        end
+                    end
+                    ROUTER_2: begin
+                        if (valid_dfx_data_reg) begin
+                            data_dfx_recv <= data_dfx_recv_router_2;
+                        end else begin
+                            data_dfx_recv <= 0;
+                        end
+                    end
+                    ROUTER_3: begin
+                        if (valid_dfx_data_reg) begin
+                            data_dfx_recv <= data_dfx_recv_router_3;
+                        end else begin
+                            data_dfx_recv <= 0;
+                        end
+                    end
+                    default: begin
+                        data_dfx_recv <= 0;
+                    end
+                endcase
+            end
+            default: begin
+                data_dfx_recv <= 0;
+            end
+        endcase
+    end
+end
 endmodule

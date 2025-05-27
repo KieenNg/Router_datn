@@ -158,6 +158,24 @@ always @(posedge clk or negedge rst_n) begin
                 router_scr_addr_reg <= router_scr_addr;
                 router_dst_addr_reg <= router_dst_addr;
             end
+            // READ_INPUT_0: begin
+            //     router_done <= 1;
+            // end
+            READ_INPUT_1: begin
+                router_done <= 1;
+            end
+            HEADER_MODIFY: begin
+                router_done <= 1;
+            end
+            WRITE_OUTPUT_0: begin
+                router_done <= 1;
+            end
+            // WRITE_OUTPUT_1: begin
+            //     router_done <= 1;
+            // end
+            WRITE_OUTPUT_01: begin
+                router_done <= 1;
+            end
             default: begin
                 router_done <= 0;
                 router_scr_addr_reg <= router_scr_addr_reg;
