@@ -14,16 +14,18 @@ module router_controller2
     output reg                      router_done,
     ////////////arbiter////////////
     input                           arbiter_read_gnt,
-    input                           arbiter_write_gnt,
     output reg                      arbiter_read_req,
-    output reg                      arbiter_write_req,
     output reg [ADDR_WIDTH - 1:0]   arbiter_src_addr,
-    output reg [ADDR_WIDTH - 1:0]   arbiter_dst_addr,
 ////////////encode packet////////////
     input                           ctrl_encode_ready_i,
     output reg                      ctrl_encode_valid_o,
     output reg [ADDR_WIDTH - 1:0]   router_dst_addr_send,
     input                           encode_done,
+////////////decode packet////////////
+    // input                           decode_done,
+    // input [ADDR_WIDTH - 1:0]        dst_addr_arbiter_recv,
+    // input [8:0]                     header_pkt_recv,
+    // output reg                      start_decap_pkt,
 ///////////fifo input 0////////////
     input                           empty_input_port_0,
     output reg                      rd_input_port_0,
@@ -31,12 +33,6 @@ module router_controller2
     input               empty_input_port_1,
     output reg          rd_input_port_1, 
 /////////////output port 0////////////
-    input                           empty_output_port_0,
-    input                           decap_done,
-    input [ADDR_WIDTH - 1:0]        dst_addr_arbiter_recv,
-    input [8:0]                     header_pkt_recv,
-    output reg                      start_decap_pkt,
-    output reg                      rd_output_port_0,
     output reg                      we_output_port_0,
 /////////////output port 1////////////
     output reg                      we_output_port_1,
@@ -57,9 +53,10 @@ parameter START_ENCODE_PKT = 4'b0011;
 parameter ENCODE_PKT = 4'b0100;
 parameter READ_INPUT_0 = 4'b0101;
 parameter READ_INPUT_1 = 4'b0110;
-parameter WRITE_OUTPUT_0 = 4'b0111;
-parameter WRITE_OUTPUT_1 = 4'b1000;
-parameter WRITE_OUTPUT_01 = 4'b1001;
+parameter HEADER_MODIFY = 4'b0111;
+parameter WRITE_OUTPUT_0 = 4'b1000;
+parameter WRITE_OUTPUT_1 = 4'b1001;
+parameter WRITE_OUTPUT_01 = 4'b1010;
 // parameter READ_OUTPUT_0 = 4'b1000;
 // parameter DECAP_PKT = 4'b1001;
 
@@ -91,9 +88,6 @@ always @(*) begin
         READ_ARBITER: begin
             next_state = arbiter_read_gnt ? START_ENCODE_PKT : READ_ARBITER;
         end
-        // READ_ARBITER_DELAY: begin
-        //     next_state = ENCODE_PKT;
-        // end
         START_ENCODE_PKT: begin
             next_state = ENCODE_PKT;
         end
@@ -107,6 +101,9 @@ always @(*) begin
             next_state = WRITE_OUTPUT_1;
         end
         READ_INPUT_1: begin
+            next_state = HEADER_MODIFY;
+        end
+        HEADER_MODIFY: begin
             if(data_port1_before[8:7] > 1) begin
                 next_state = WRITE_OUTPUT_01;
             end
@@ -175,24 +172,16 @@ end
 always @(posedge clk or negedge rst_n) begin
     if(!rst_n) begin
         arbiter_read_req <= 0;
-        arbiter_write_req <= 0;
         arbiter_src_addr <= 10'h0;
-        arbiter_dst_addr <= 10'h0;
     end
     else begin
         case(current_state)
             READ_ARBITER: begin
                 arbiter_read_req <= 1;
                 arbiter_src_addr <= router_scr_addr_reg;
-                arbiter_write_req <= 0;
             end
-            // READ_ARBITER_DELAY: begin
-            //     arbiter_read_req <= 1;
-            //     arbiter_write_req <= 0;
-            // end
             default: begin
                 arbiter_read_req <= 0;
-                arbiter_write_req <= 0;
             end
         endcase
     end
@@ -225,7 +214,7 @@ end
 
 
   /***************************************************************
-   * Output logic: fifo in 0 
+   * Output logic: fifo in 0 interface
    **************************************************************/
 always @(*) begin
     case(current_state)
@@ -242,7 +231,7 @@ always @(*) begin
 end
 
   /***************************************************************
-   * Output logic: fifo out 1 
+   * Output logic: fifo out 1 interface
    **************************************************************/
 always @(*) begin
     case(current_state)
@@ -264,43 +253,40 @@ end
    * Output logic: crossbar control 
    **************************************************************/
 reg [AURORA_DATA_WIDTH - 1:0] data_port1_before_reg;
-// reg we_output_port_0_reg;
-// reg we_output_port_1_reg;
 always @(posedge clk or negedge rst_n) begin
     if(!rst_n) begin
         data_port1_before_reg <= 0;
-        // we_output_port_0_reg <= 0;
     end
     else begin
         case(current_state)
             READ_INPUT_1: begin
-                if(data_port1_before[8:7] > 1) begin
-                    data_port1_before_reg[8:7] <= data_port1_before[8:7] - 1;
+                data_port1_before_reg <= 0;
+            end
+            HEADER_MODIFY: begin
+                if(data_port1_before[8:7] > 1'b1) begin
+                    data_port1_before_reg[8:7] <= data_port1_before[8:7] - 1'b1;
                     data_port1_before_reg[63:9] <= data_port1_before[63:9];
                     data_port1_before_reg[6:0] <= data_port1_before[6:0];
-                    // we_output_port_0_reg <= 1;
                 end
                 else begin
                     data_port1_before_reg <= data_port1_before;
-                    // we_output_port_0_reg <= 1;
                 end
             end
             default: begin
                 data_port1_before_reg <= data_port1_before;
-                // we_output_port_0_reg <= 0;
             end
         endcase
     end
 end
 always @(*) begin
     case(current_state)
-        // READ_INPUT_0: begin
-        //     control_crossbar = 2'b00;
-        //     data_port1_after = 0;
-        // end
         READ_INPUT_1: begin
-            //control_crossbar
             control_crossbar = 2'b00;
+            data_port1_after = 0;
+        end
+        HEADER_MODIFY: begin
+            control_crossbar = 2'b00;
+            data_port1_after = data_port1_before_reg;
         end
         WRITE_OUTPUT_1: begin
             control_crossbar = 2'b01;
@@ -320,12 +306,15 @@ always @(*) begin
     endcase
 end
   /***************************************************************
-   * Output logic: fifo in 1 
+   * Output logic: fifo in 1 interface
    **************************************************************/
 always @(*) begin
     case(current_state)
         READ_INPUT_1: begin
             rd_input_port_1 = 1;
+        end
+        HEADER_MODIFY: begin
+            rd_input_port_1 = 0;
         end
         WRITE_OUTPUT_0: begin
             rd_input_port_1 = 0;
@@ -339,25 +328,24 @@ always @(*) begin
     endcase
 end
   /***************************************************************
-   * Output logic: fifo out 0 
+   * Output logic: fifo out 0 interface
    **************************************************************/
 always @(*) begin
     case(current_state)
         READ_INPUT_1: begin
             we_output_port_0 = 0;
-            rd_output_port_0 = 0;
+        end
+        HEADER_MODIFY: begin
+            
         end
         WRITE_OUTPUT_0: begin
             we_output_port_0 = 1;
-            rd_output_port_0 = 0;
         end
         WRITE_OUTPUT_01: begin
             we_output_port_0 = 1;
-            rd_output_port_0 = 0;
         end
         default: begin
             we_output_port_0 = 0;
-            rd_output_port_0 = 0;
         end
     endcase
 end
